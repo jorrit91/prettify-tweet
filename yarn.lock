@@ -1352,6 +1352,21 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
+"@linaria/babel-preset@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/babel-preset/-/babel-preset-3.0.0-beta.15.tgz#d8bd3d00d1f8b51209054fe04b0245a94c6f606c"
+  integrity sha512-oJIyUn2SCIH4vW1vBxOsN2BTU6Y0mq4ywkqxwQ1py4HgtEnYlvpq4Ca0ba7vXvMWk1pMCgd/V+VpMjbr19uXgQ==
+  dependencies:
+    "@babel/generator" ">=7"
+    "@babel/plugin-syntax-dynamic-import" ">=7"
+    "@babel/template" ">=7"
+    "@linaria/core" "^3.0.0-beta.15"
+    "@linaria/logger" "^3.0.0-beta.15"
+    "@linaria/utils" "^3.0.0-beta.15"
+    cosmiconfig "^5.1.0"
+    source-map "^0.7.3"
+    stylis "^3.5.4"
+
 "@linaria/babel-preset@^3.0.0-beta.5":
   version "3.0.0-beta.5"
   resolved "https://registry.yarnpkg.com/@linaria/babel-preset/-/babel-preset-3.0.0-beta.5.tgz#34088faf49eb5408839c2975b1445ed99b87dd69"
@@ -1365,19 +1380,35 @@
     source-map "^0.6.1"
     stylis "^3.5.4"
 
+"@linaria/core@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/core/-/core-3.0.0-beta.15.tgz#570fab9430e5b4f2677fbb4eaeda66c041030f08"
+  integrity sha512-9sqPCcWIlA1zTck45uNGqrjtnWj5HGa7Lxbaw1ZsCcm6K6WcMVyOqW3OQkMBHuf3OzC50Mzb8z7d7d6Rpg8uFw==
+  dependencies:
+    "@linaria/utils" "^3.0.0-beta.15"
+
 "@linaria/core@^3.0.0-beta.4":
   version "3.0.0-beta.4"
   resolved "https://registry.yarnpkg.com/@linaria/core/-/core-3.0.0-beta.4.tgz#ae878874773c15b189792e277771f68fef18019a"
 
-"@linaria/extractor@^3.0.0-beta.5":
-  version "3.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@linaria/extractor/-/extractor-3.0.0-beta.5.tgz#a2a54e37355f0d6dce51163985ef8dcda0cdb4fd"
+"@linaria/extractor@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/extractor/-/extractor-3.0.0-beta.15.tgz#6cc20e9b8e039e96bb5a2d33e5dcb7e746d83ab3"
+  integrity sha512-53PHV+4QsI39Ac7iJRBX6D7qZe1/kz3lDVjFq9vf9Kh99j0p8Pc3mJ50zjaYSeN9yACFUGiimoGeznJCGeGyWQ==
   dependencies:
     "@babel/generator" ">=7"
     "@babel/plugin-transform-runtime" ">=7"
     "@babel/plugin-transform-template-literals" ">=7"
-    "@linaria/babel-preset" "^3.0.0-beta.5"
-    "@linaria/preeval" "^3.0.0-beta.5"
+    "@linaria/babel-preset" "^3.0.0-beta.15"
+    "@linaria/preeval" "^3.0.0-beta.15"
+
+"@linaria/logger@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/logger/-/logger-3.0.0-beta.15.tgz#be0490e71da8e5e637ad5aaef59b0a021dc4fec3"
+  integrity sha512-tKytEEus47CZ4/7pbgRYD+Por4tH7/5Um2Quof6Qamd7Xj7brhmAPRRoZzYu4pht+S7V9oNL0X4IBSmNIOYRZw==
+  dependencies:
+    debug "^4.1.1"
+    picocolors "^1.0.0"
 
 "@linaria/logger@^3.0.0-beta.3":
   version "3.0.0-beta.3"
@@ -1385,51 +1416,63 @@
   dependencies:
     debug "^4.1.1"
 
-"@linaria/preeval@^3.0.0-beta.5":
-  version "3.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@linaria/preeval/-/preeval-3.0.0-beta.5.tgz#1774f741fa310c00a6b15eede30aa4fd7579e06e"
+"@linaria/preeval@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/preeval/-/preeval-3.0.0-beta.15.tgz#dabcfc3e42de95e5521d002d35667fc67d779e3f"
+  integrity sha512-621wPHry4L4YFRdMXE0wxVKsocFL2KC+RECSdc6Oy4MVtMMeTyps671pV27+kQldWIRvp1ZsdhknNMEug+rKdg==
   dependencies:
-    "@linaria/babel-preset" "^3.0.0-beta.5"
+    "@linaria/babel-preset" "^3.0.0-beta.15"
 
-"@linaria/react@^3.0.0-beta.4":
-  version "3.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@linaria/react/-/react-3.0.0-beta.4.tgz#3652812d42e8f7bbd2bae0ee7fd468ef0c68ddc9"
+"@linaria/react@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/react/-/react-3.0.0-beta.15.tgz#dbd3d17dc6429d7ba46da492992547ce8ed8da39"
+  integrity sha512-1s/4DM+kAg3AdfAiK8vu6NBe3v+il7C3JjD0GBTUkZBJDOQ/4Vm543+PhlyL9t3tmmu9Xxg+in7PFNr7ODCTTQ==
   dependencies:
     "@emotion/is-prop-valid" "^0.8.8"
-    "@linaria/core" "^3.0.0-beta.4"
+    "@linaria/core" "^3.0.0-beta.15"
 
-"@linaria/rollup@^3.0.0-beta.6":
-  version "3.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@linaria/rollup/-/rollup-3.0.0-beta.6.tgz#fa7c5177c0c6eddf74336677ce3e40e546fee6dc"
+"@linaria/rollup@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/rollup/-/rollup-3.0.0-beta.15.tgz#4ee9997cfcb49d6ddcdf39e06947a53197bc5028"
+  integrity sha512-qh5H+mzUbfpYwHcDwfbpvALs5k+8O88wJckLFtbh1HBZWXzak1NfuwRGtWjMcITC8kLAOJGHjjEko1yJrQjIIw==
   dependencies:
-    "@linaria/babel-preset" "^3.0.0-beta.5"
+    "@linaria/babel-preset" "^3.0.0-beta.15"
     "@rollup/pluginutils" "^4.1.0"
 
-"@linaria/server@^3.0.0-beta.3":
-  version "3.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@linaria/server/-/server-3.0.0-beta.3.tgz#26493955a25875a685e11fa1c3d7792c425b9152"
+"@linaria/server@^3.0.0-beta.13":
+  version "3.0.0-beta.13"
+  resolved "https://registry.yarnpkg.com/@linaria/server/-/server-3.0.0-beta.13.tgz#92504a27aaf8df434b2989538fb5a31598a298a7"
+  integrity sha512-LkmiTIKY2srNwxqHbYXfgb47ZuiyhKNEMFMAbO7818RY2ijXb9eJgQ7SfDah5Cod7b8HBaWn58Kc2FeTR4+rlg==
   dependencies:
     postcss "^7.0.14"
 
-"@linaria/shaker@^3.0.0-beta.5":
-  version "3.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@linaria/shaker/-/shaker-3.0.0-beta.5.tgz#9b85cb6323634a4f623f04e2e5bf4baec3e4aff8"
+"@linaria/shaker@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/shaker/-/shaker-3.0.0-beta.15.tgz#8f4835ffe0185afbd14a17dcf4fb6ca042331250"
+  integrity sha512-+PZRf8hM7fO4RiNpVVYUhIXQPPKYxowXYMaiILq/9zGcy2tQ6onqsKaQ71SCXvVrL+gVo6A/R13njOCJRZRTew==
   dependencies:
     "@babel/generator" ">=7"
     "@babel/plugin-transform-runtime" ">=7"
     "@babel/plugin-transform-template-literals" ">=7"
     "@babel/preset-env" ">=7"
-    "@linaria/babel-preset" "^3.0.0-beta.5"
-    "@linaria/logger" "^3.0.0-beta.3"
-    "@linaria/preeval" "^3.0.0-beta.5"
+    "@linaria/babel-preset" "^3.0.0-beta.15"
+    "@linaria/logger" "^3.0.0-beta.15"
+    "@linaria/preeval" "^3.0.0-beta.15"
     babel-plugin-transform-react-remove-prop-types "^0.4.24"
+    ts-invariant "^0.9.0"
 
-"@linaria/stylelint@^3.0.0-beta.5":
-  version "3.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@linaria/stylelint/-/stylelint-3.0.0-beta.5.tgz#a7f38947b9aa832a15f33debc97987aca3f69abe"
+"@linaria/stylelint@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/stylelint/-/stylelint-3.0.0-beta.15.tgz#ba5c571c00e016ac2d220277d763ecaada4afe12"
+  integrity sha512-iFrsWEJZAxjzYD4oay85BOllLznWOpsfAA638ebn20GxfLs8dJS3uZ26X+7fczJemBM3AUU+dWaCgT4OFZLoPA==
   dependencies:
-    "@linaria/babel-preset" "^3.0.0-beta.5"
+    "@linaria/babel-preset" "^3.0.0-beta.15"
     strip-ansi "^5.2.0"
+
+"@linaria/utils@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/utils/-/utils-3.0.0-beta.15.tgz#001d8dacf113c443960651593144e64bf39e995a"
+  integrity sha512-CF0T8ueWjHK8zJT0oqdAq8JgL9a40WCyE5/t6q8WPvC7xRdsrfyUKA7Z8qEsQse2LKESVWJ5cvkkn8J80B6c+A==
 
 "@linaria/webpack-loader@3.0.0-beta.6":
   version "3.0.0-beta.6"
@@ -1438,6 +1481,20 @@
   dependencies:
     "@linaria/webpack4-loader" "^3.0.0-beta.6"
     "@linaria/webpack5-loader" "^3.0.0-beta.6"
+
+"@linaria/webpack4-loader@^3.0.0-beta.15":
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@linaria/webpack4-loader/-/webpack4-loader-3.0.0-beta.15.tgz#477dee37dee1b6ba8f6e947ef66e773c6a435107"
+  integrity sha512-Uil6XUShRPy8AhI/FYciaK8s++93uGXekleLFUzMYEQjPKlAwVTuZnhp5aAqgsWLuhYPkUbL8bzuPo5522Gsgg==
+  dependencies:
+    "@linaria/babel-preset" "^3.0.0-beta.15"
+    "@linaria/logger" "^3.0.0-beta.15"
+    cosmiconfig "^5.1.0"
+    enhanced-resolve "^4.1.0"
+    find-yarn-workspace-root "^1.2.1"
+    loader-utils "^1.2.3"
+    mkdirp "^0.5.1"
+    normalize-path "^3.0.0"
 
 "@linaria/webpack4-loader@^3.0.0-beta.6":
   version "3.0.0-beta.6"
@@ -4077,19 +4134,20 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
-linaria@3.0.0-beta.6:
-  version "3.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/linaria/-/linaria-3.0.0-beta.6.tgz#a06a0f644d6a3c03985fa8a046386d4276bd1786"
+linaria@3.0.0-beta.15:
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/linaria/-/linaria-3.0.0-beta.15.tgz#728df11e28c40ddacd4387b6fa13d593ddd8c57d"
+  integrity sha512-3ShMdjkZU3E0Mgml5e3PE1XOEm422URzV5M/tPqRinpkOtuZFkc/5HvV0Dsx11R5ZnsN0jBfG6yHQZ7jg4OtRA==
   dependencies:
-    "@linaria/babel-preset" "^3.0.0-beta.5"
-    "@linaria/core" "^3.0.0-beta.4"
-    "@linaria/extractor" "^3.0.0-beta.5"
-    "@linaria/react" "^3.0.0-beta.4"
-    "@linaria/rollup" "^3.0.0-beta.6"
-    "@linaria/server" "^3.0.0-beta.3"
-    "@linaria/shaker" "^3.0.0-beta.5"
-    "@linaria/stylelint" "^3.0.0-beta.5"
-    "@linaria/webpack4-loader" "^3.0.0-beta.6"
+    "@linaria/babel-preset" "^3.0.0-beta.15"
+    "@linaria/core" "^3.0.0-beta.15"
+    "@linaria/extractor" "^3.0.0-beta.15"
+    "@linaria/react" "^3.0.0-beta.15"
+    "@linaria/rollup" "^3.0.0-beta.15"
+    "@linaria/server" "^3.0.0-beta.13"
+    "@linaria/shaker" "^3.0.0-beta.15"
+    "@linaria/stylelint" "^3.0.0-beta.15"
+    "@linaria/webpack4-loader" "^3.0.0-beta.15"
 
 listr2@^3.8.3:
   version "3.13.5"
@@ -4718,6 +4776,11 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
+picocolors@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
+  integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
+
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
@@ -5302,9 +5365,10 @@ source-map-url@^0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.1.tgz#0af66605a745a5a2f91cf1bbf8a7afbc283dec56"
 
-source-map@0.7.3:
+source-map@0.7.3, source-map@^0.7.3:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
+  integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
 source-map@0.8.0-beta.0:
   version "0.8.0-beta.0"
@@ -5639,6 +5703,13 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
+ts-invariant@^0.9.0:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.9.3.tgz#4b41e0a80c2530a56ce4b8fd4e14183aaac0efa8"
+  integrity sha512-HinBlTbFslQI0OHP07JLsSXPibSegec6r9ai5xxq/qHYCsIQbzpymLpDhAUsnXcSrDEcd0L62L8vsOEdzM0qlA==
+  dependencies:
+    tslib "^2.1.0"
+
 tsconfig-paths@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.9.0.tgz#098547a6c4448807e8fcb8eae081064ee9a3c90b"
@@ -5651,6 +5722,11 @@ tsconfig-paths@^3.9.0:
 tslib@^1.8.1:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+
+tslib@^2.1.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
 tslib@~2.1.0:
   version "2.1.0"
