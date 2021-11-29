@@ -1,0 +1,12 @@
+name: auto-approve-dependabot-pr
+
+on: pull_request
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hmarr/auto-approve-action@v2.1.0
+        if: contains(github.head_ref, 'renovate/')
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
