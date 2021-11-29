@@ -14,10 +14,10 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@babel/core": "7.14.3",
-    "@babel/preset-env": "7.14.4",
-    "@babel/preset-react": "7.13.13",
-    "@babel/preset-typescript": "7.13.0",
+    "@babel/core": "7.16.0",
+    "@babel/preset-env": "7.16.4",
+    "@babel/preset-react": "7.16.0",
+    "@babel/preset-typescript": "7.16.0",
     "@biowaffeln/next-linaria": "0.0.1",
     "@linaria/webpack-loader": "3.0.0-beta.6",
     "@next/bundle-analyzer": "10.2.3",
