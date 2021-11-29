@@ -20,7 +20,7 @@
     "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",
     "@biowaffeln/next-linaria": "0.0.1",
-    "@linaria/webpack-loader": "3.0.0-beta.6",
+    "@linaria/webpack-loader": "3.0.0-beta.13",
     "@next/bundle-analyzer": "10.2.3",
     "@sanity/base": "2.10.5",
     "@sanity/components": "2.2.6",
