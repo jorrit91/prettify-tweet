@@ -4,6 +4,11 @@
     https://medium.com/@elad/normalize-css-or-css-reset-9d75175c5d1e
   */
 
+:root {
+  --background-color: #222429;
+  --heading-color: #ffffff;
+  --text-color: #ffffff;
+}
 *,
 *::before,
 *::after {
