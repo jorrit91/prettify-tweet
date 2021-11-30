@@ -4376,9 +4376,10 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
-next-linaria@0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/next-linaria/-/next-linaria-0.10.0.tgz#e97ae482a13cc020627d4c7a3db2ecd2d3e49f52"
+next-linaria@0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/next-linaria/-/next-linaria-0.11.0.tgz#dc7da2e2c348c8548d003f571905ef1845f32282"
+  integrity sha512-JoVY9gF8d8NXRWfGMCIqh1m0uLvFV7wQA2kz8mzU4diHe3/VuNuXXwnogJOK9JMvhK1RD36/0eKiCbbeGI2mTw==
 
 next@12.0.4:
   version "12.0.4"
