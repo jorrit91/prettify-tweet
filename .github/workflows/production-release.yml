@@ -10,7 +10,7 @@ jobs:
     steps:
       # This merges main to production to trigger a vercel deploy
       - name: Merge main -> production
-        uses: devmasx/merge-branch@v1.3.1
+        uses: devmasx/merge-branch@1.4.0
         with:
           type: now
           head_to_merge: ${{ github.ref }}
