@@ -22,3 +22,11 @@
   src: url('/fonts/inter-700.woff2') format('woff2'),
     url('/fonts/inter-700.woff') format('woff');
 }
+@font-face {
+  font-family: 'Noto serif';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/noto-serif-700.woff2') format('woff2'),
+    url('/fonts/noto-serif-700.woff') format('woff');
+}
