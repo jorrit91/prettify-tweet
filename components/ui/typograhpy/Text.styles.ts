@@ -9,6 +9,10 @@ export const baseText = css`
   strong {
     font-weight: ${theme.fontWeights.bold};
   }
+
+  a {
+    color: ${theme.colors.brightBlue};
+  }
 `
 
 export const regular = css`
