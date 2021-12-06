@@ -12,7 +12,7 @@ const StyleguideButtonsPage: NextPage<StyleguideButtonsPageProps> = () => {
       <Box mb="32" style={{ maxWidth: '20rem' }}>
         <Button mb="16">Save & download</Button>
         <Button mb="16" status="disabled">
-          Save & download
+          Disabled
         </Button>
         <Button mb="16" status="loading">
           Save & download

@@ -20,10 +20,15 @@ export const button = parse(
     padding: 1rem 1.5rem;
     transition-property: all;
     transition-duration: 0.2s;
+    outline: none;
 
     @supports not (background: paint(squircle)) {
       border-radius: 0.75rem;
       background: ${theme.colors.brightBlue};
+
+      &:focus-visible {
+        box-shadow: 0px 0px 2px 1px rgb(255 255 255 / 60%);
+      }
 
       @media screen and (hover: hover) and (pointer: fine) {
         &:hover {
@@ -48,6 +53,10 @@ export const button = parse(
       border-radius: 0;
       background: paint(squircle);
       z-index: 1;
+
+      &:focus-visible {
+        filter: drop-shadow(0px 0px 2px white);
+      }
 
       &:before {
         content: '';
