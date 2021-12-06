@@ -5,6 +5,10 @@ export const button = parse(
   {
     width: '100%',
     position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center',
     fontWeight: 'bold',
     color: 'white',
   },
@@ -24,6 +28,15 @@ export const button = parse(
       @media screen and (hover: hover) and (pointer: fine) {
         &:hover {
           background: ${theme.colors.brightBlueHover};
+        }
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background: ${theme.colors.brightBlueHover};
+
+        span {
+          opacity: 0.5;
         }
       }
     }
@@ -57,8 +70,19 @@ export const button = parse(
       @media screen and (hover: hover) and (pointer: fine) {
         &:hover {
           &:before {
-            opacity: 0.15;
+            opacity: 0.2;
           }
+        }
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        &:before {
+          opacity: 0.2;
+        }
+
+        span {
+          opacity: 0.5;
         }
       }
     }
@@ -89,3 +113,9 @@ export const button = parse(
     }
   `
 )
+
+export const loading = parse({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+})

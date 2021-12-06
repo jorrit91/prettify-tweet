@@ -2,6 +2,7 @@ import { AppTheme, parseAll } from '@config/theme'
 import { cx } from '@linaria/core'
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, FC } from 'react'
 import { ThemeSystemProps } from 'theme-system'
+import { LoadingSvg } from '../LoadingSvg'
 import * as styles from './Button.styles'
 
 type AsAnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -46,9 +47,14 @@ export const Button: FC<ButtonProps> = ({
       data-auto-width={width === 'auto' ? '' : undefined}
       data-status={status}
       disabled={status === 'loading' || status === 'disabled'}
+      data-loading={status === 'loading' ? '' : undefined}
     >
-      {children}
-      {status === 'loading' && <span data-loading-animation />}
+      <span>{children}</span>
+      {status === 'loading' && (
+        <span data-loading-animation className={styles.loading}>
+          <LoadingSvg />
+        </span>
+      )}
     </Element>
   )
 }
