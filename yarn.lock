@@ -1264,11 +1264,6 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
-"@biowaffeln/next-linaria@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@biowaffeln/next-linaria/-/next-linaria-0.0.1.tgz#235db8f7466e3eabefbe9dec3762d49988c82d7a"
-  integrity sha512-+jYyw4pVofAdehgfKqsA86pFRcstWUTwzXSGlkaPoUtvhFjRXo00Mp6jsG3i8SgIspsKGxnX6OZtZagCn88kdw==
-
 "@cypress/request@^2.88.7":
   version "2.88.10"
   resolved "https://registry.yarnpkg.com/@cypress/request/-/request-2.88.10.tgz#b66d76b07f860d3a4b8d7a0604d020c662752cce"
@@ -1381,12 +1376,7 @@
     source-map "^0.7.3"
     stylis "^3.5.4"
 
-"@linaria/core@3.0.0-beta.13":
-  version "3.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@linaria/core/-/core-3.0.0-beta.13.tgz#049c5be5faa67e341e413a0f6b641d5d78d91056"
-  integrity sha512-3zEi5plBCOsEzUneRVuQb+2SAx3qaC1dj0FfFAI6zIJQoDWu0dlSwKijMRack7oO9tUWrchfj3OkKQAd1LBdVg==
-
-"@linaria/core@^3.0.0-beta.13", "@linaria/core@^3.0.0-beta.15":
+"@linaria/core@3.0.0-beta.15", "@linaria/core@^3.0.0-beta.13", "@linaria/core@^3.0.0-beta.15":
   version "3.0.0-beta.15"
   resolved "https://registry.yarnpkg.com/@linaria/core/-/core-3.0.0-beta.15.tgz#570fab9430e5b4f2677fbb4eaeda66c041030f08"
   integrity sha512-9sqPCcWIlA1zTck45uNGqrjtnWj5HGa7Lxbaw1ZsCcm6K6WcMVyOqW3OQkMBHuf3OzC50Mzb8z7d7d6Rpg8uFw==
