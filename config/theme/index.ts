@@ -18,6 +18,8 @@ export const theme: Theme = {
   fontSizes: {},
   colors: {
     brightBlue: '#3061F6',
+    brightBlueHover: '#2d58d6',
+    brightBlueDisabled: '#29428f',
     darkBlue: '#253566',
     success: '#0DA365',
     error: '#F24822',
