@@ -49,7 +49,7 @@ export const button = parse(
     @supports (background: paint(squircle)) {
       --squircle-radius: 20px;
       --squircle-smooth: 20;
-      --squircle-fill: #3061f6;
+      --squircle-fill: ${theme.colors.brightBlue};
       border-radius: 0;
       background: paint(squircle);
       z-index: 1;
@@ -128,3 +128,20 @@ export const loading = parse({
   alignItems: 'center',
   justifyContent: 'center',
 })
+
+export const iconButton = parse(
+  {},
+  css`
+    width: 3rem;
+    height: 3rem;
+
+    @supports (background: paint(squircle)) {
+      --squircle-fill: ${theme.colors.shade400};
+    }
+
+    @supports not (background: paint(squircle)) {
+      border-radius: 0.75rem;
+      background: ${theme.colors.shade400};
+    }
+  `
+)
