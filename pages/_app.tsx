@@ -1,16 +1,14 @@
-import React from 'react'
+import '@config/theme/utility-styles'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import '../styles/reset.css'
+import React from 'react'
 import '../styles/font-face.css'
 import '../styles/global-styles.css'
-import '@config/theme/utility-styles'
-import { Scripts } from '@components/Scripts'
+import '../styles/reset.css'
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
-      <Scripts />
       <Component {...pageProps} />
     </>
   )

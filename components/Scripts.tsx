@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 export const Scripts: FC = () => {
   return (
     <Script
-      strategy="afterInteractive"
+      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{
         __html: `
       if ("paintWorklet" in CSS) {
