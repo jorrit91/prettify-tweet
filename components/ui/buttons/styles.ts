@@ -1,5 +1,6 @@
 import { parse, theme } from '@config/theme'
 import { css } from '@linaria/core'
+import { rgba } from 'polished'
 
 export const button = parse(
   {
@@ -13,11 +14,12 @@ export const button = parse(
     color: 'white',
   },
   css`
+    height: 3rem;
     overflow: hidden;
     font-size: 18px;
     line-height: 1.2;
     border: none;
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem;
     transition-property: all;
     transition-duration: 0.2s;
     outline: none;
@@ -77,7 +79,7 @@ export const button = parse(
       }
 
       @media screen and (hover: hover) and (pointer: fine) {
-        &:hover {
+        &:not(:disabled):hover {
           &:before {
             opacity: 0.2;
           }
@@ -129,19 +131,48 @@ export const loading = parse({
   justifyContent: 'center',
 })
 
-export const iconButton = parse(
-  {},
+export const iconButton = css`
+  width: 3rem;
+  height: 3rem;
+
+  @supports (background: paint(squircle)) {
+    --squircle-fill: ${theme.colors.shade400};
+  }
+
+  @supports not (background: paint(squircle)) {
+    border-radius: 0.75rem;
+    background: ${theme.colors.shade400};
+
+    @media screen and (hover: hover) and (pointer: fine) {
+      &:not(:disabled):hover {
+        background: ${rgba(theme.colors.shade400, 0.5)};
+      }
+    }
+  }
+
+  &:active {
+    &[data-animate='left'] {
+      [data-icon-container] {
+        transform: translateX(-0.15rem);
+      }
+    }
+    &[data-animate='down'] {
+      [data-icon-container] {
+        transform: scale(0.9);
+      }
+    }
+  }
+`
+
+export const iconContainer = parse(
+  {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   css`
-    width: 3rem;
-    height: 3rem;
-
-    @supports (background: paint(squircle)) {
-      --squircle-fill: ${theme.colors.shade400};
-    }
-
-    @supports not (background: paint(squircle)) {
-      border-radius: 0.75rem;
-      background: ${theme.colors.shade400};
-    }
+    transition-property: transform;
+    transition-duration: 0.2s;
+    z-index: 0;
   `
 )

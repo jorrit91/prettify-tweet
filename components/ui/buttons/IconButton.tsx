@@ -27,7 +27,7 @@ export type IconButtonProps = Pick<ThemeSystemProps<AppTheme>, 'mb'> &
     icon: 'arrow-left' | 'close'
   }
 
-export const Button: FC<IconButtonProps> = ({
+export const IconButton: FC<IconButtonProps> = ({
   status,
   as,
   className,
@@ -57,7 +57,7 @@ export const Button: FC<IconButtonProps> = ({
       disabled={status === 'loading' || status === 'disabled'}
       data-loading={status === 'loading' ? '' : undefined}
     >
-      <span>
+      <span className={styles.iconContainer} data-icon-container>
         {icon === 'arrow-left' && <IconArrowLeft />}
         {icon === 'close' && <IconClose />}
       </span>

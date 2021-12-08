@@ -28,7 +28,7 @@ export const Button: FC<ButtonProps> = ({
   children,
   status,
   as,
-  width,
+  width = 'auto',
   className,
   mb,
   ...rest
