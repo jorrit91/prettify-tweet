@@ -46,7 +46,7 @@
     "babel-plugin-polished": "1.1.0",
     "@linaria/babel-preset": "3.0.0-beta.13",
     "@linaria/core": "3.0.0-beta.13",
-    "@linaria/react": "3.0.0-beta.13",
+    "@linaria/react": "3.0.0-beta.15",
     "@linaria/shaker": "3.0.0-beta.13",
     "next": "12.0.4",
     "next-linaria": "1.0.0-beta",
