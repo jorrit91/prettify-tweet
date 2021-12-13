@@ -1,12 +1,10 @@
 import { parse, theme } from '@config/theme'
 import { css } from '@linaria/core'
+import { rem } from 'polished'
 
-export const inputContainer = parse(
-  {
-    position: 'relative',
-  },
-  css``
-)
+export const inputContainer = parse({
+  position: 'relative',
+})
 
 export const squircleHelper = parse(
   {
@@ -81,7 +79,8 @@ export const inputStyles = parse(
     bg: 'shade400',
   },
   css`
-    height: 3rem;
+    height: 4rem;
+    font-size: ${rem(18)};
     line-height: 4rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -94,6 +93,7 @@ export const inputStyles = parse(
     &::placeholder {
       color: white;
       text-align: center;
+      font-weight: ${theme.fontWeights.bold};
     }
 
     @supports not (background: paint(squircle)) {
@@ -113,7 +113,7 @@ export const inputStyles = parse(
       &:active,
       &:focus-within {
         border-color: ${theme.colors.brightBlueHover};
-        box-shadow: 0 0 0 2px ${theme.colors.darkBlue};
+        box-shadow: 0 0 0 3px ${theme.colors.darkBlue};
       }
     }
 

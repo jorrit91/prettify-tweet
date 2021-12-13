@@ -9,7 +9,7 @@ type StyleguideInputPageProps = { children?: never }
 const StyleguideInputPage: NextPage<StyleguideInputPageProps> = () => {
   return (
     <Container mt="32">
-      <Box mb="32" style={{ width: '100%', maxWidth: '15rem' }}>
+      <Box mb="32" style={{ width: '100%', maxWidth: '20rem' }}>
         <Input name="test" placeholder="Enter Tweet URL" label="Enter url" />
         <Input name="test" placeholder="Enter Tweet URL" label="Enter url" />
         <Input name="test" placeholder="Enter Tweet URL" label="Enter url" />
