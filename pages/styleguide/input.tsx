@@ -11,6 +11,8 @@ const StyleguideInputPage: NextPage<StyleguideInputPageProps> = () => {
     <Container mt="32">
       <Box mb="32" style={{ width: '100%', maxWidth: '15rem' }}>
         <Input name="test" placeholder="Enter Tweet URL" label="Enter url" />
+        <Input name="test" placeholder="Enter Tweet URL" label="Enter url" />
+        <Input name="test" placeholder="Enter Tweet URL" label="Enter url" />
       </Box>
     </Container>
   )

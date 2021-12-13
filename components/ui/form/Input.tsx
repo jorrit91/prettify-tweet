@@ -1,5 +1,7 @@
+import { AppTheme, parseAll } from '@config/theme'
 import { cx } from '@linaria/core'
 import React, { InputHTMLAttributes } from 'react'
+import { ThemeSystemProps } from 'theme-system'
 import * as styles from './Input.styles'
 
 type InputStatus = 'idle' | 'error' | 'disabled'
@@ -7,7 +9,8 @@ type InputStatusProp = {
   status?: InputStatus
 }
 
-export type InputProps = InputStatusProp &
+export type InputProps = Pick<ThemeSystemProps<AppTheme>, 'mb'> &
+  InputStatusProp &
   InputHTMLAttributes<HTMLInputElement> & {
     label: string
   }
@@ -23,16 +26,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       label,
       value,
       name,
+      mb = '8',
       ...rest
     },
     ref
   ) => {
     const id = rest.id || name
     return (
-      <div className={styles.inputContainer}>
+      <div className={cx(styles.inputContainer, className, parseAll({ mb }))}>
         <input
           ref={ref}
-          className={cx(styles.inputStyles, className)}
+          className={styles.inputStyles}
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}

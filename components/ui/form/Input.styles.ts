@@ -96,6 +96,27 @@ export const inputStyles = parse(
       text-align: center;
     }
 
+    @supports not (background: paint(squircle)) {
+      outline: none;
+      border: 1px solid ${theme.colors.shade300};
+      border-radius: 0.75rem;
+      transition-property: border box-shadow;
+      transition-duration: 0.2s;
+      box-shadow: 0 0 0 0 ${theme.colors.darkBlue};
+
+      @media screen and (hover: hover) and (pointer: fine) {
+        &:hover {
+          border-color: ${theme.colors.brightBlueHover};
+        }
+      }
+
+      &:active,
+      &:focus-within {
+        border-color: ${theme.colors.brightBlueHover};
+        box-shadow: 0 0 0 2px ${theme.colors.darkBlue};
+      }
+    }
+
     @supports (background: paint(squircle)) {
       outline: none;
       border: 0;
@@ -105,7 +126,7 @@ export const inputStyles = parse(
       border-radius: 0;
       background: paint(squircle);
       z-index: 1;
-      filter: drop-shadow(0px 1px 3px #141721);
+      filter: drop-shadow(0px 1px 1 px #141721);
 
       @media screen and (hover: hover) and (pointer: fine) {
         &:not(:disabled):hover {
@@ -115,8 +136,7 @@ export const inputStyles = parse(
         }
       }
 
-      &:active,
-      &:focus-within {
+      &:focus {
         filter: none;
         + [data-squircle-helper]:before {
           opacity: 1;
@@ -126,9 +146,6 @@ export const inputStyles = parse(
           opacity: 1;
           transform: scale(1);
         }
-      }
-
-      &:focus-visible {
       }
     }
   `
