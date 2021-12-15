@@ -62,8 +62,8 @@ const active = parse(
     }
 
     @supports (background: paint(squircle)) {
-      --squircle-radius: 20px;
-      --squircle-smooth: 20;
+      --squircle-radius: 10px;
+      --squircle-smooth: 10;
       --squircle-fill: ${theme.colors.shade400};
       border-radius: 0;
       background: paint(squircle);

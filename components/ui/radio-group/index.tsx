@@ -41,6 +41,7 @@ const parent = parse(
 
     @supports not (background: paint(squircle)) {
       border: 1px solid ${theme.colors.shade300};
+      background: ${theme.colors.shade600};
       border-radius: 0.75rem;
       box-shadow: 0px 1px 3px #141721;
     }
