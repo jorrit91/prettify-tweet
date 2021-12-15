@@ -7,7 +7,7 @@ import { rem } from 'polished'
 
 type RadioGroupProps = {
   children: React.ReactNode
-  onValueChange: (value: string) => void
+  onValueChange: (value: string) => void //eslint-disable-line
   value: string
   name: string
 }
