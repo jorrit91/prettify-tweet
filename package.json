@@ -43,11 +43,13 @@
     "typescript": "4.5.4"
   },
   "dependencies": {
-    "babel-plugin-polished": "1.1.0",
     "@linaria/babel-preset": "3.0.0-beta.13",
     "@linaria/core": "3.0.0-beta.13",
     "@linaria/react": "3.0.0-beta.13",
     "@linaria/shaker": "3.0.0-beta.13",
+    "@radix-ui/react-radio-group": "0.1.4",
+    "babel-plugin-polished": "1.1.0",
+    "framer-motion": "5.5.3",
     "next": "12.0.4",
     "next-linaria": "1.0.0-beta",
     "polished": "4.1.3",
