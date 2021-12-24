@@ -4,10 +4,19 @@
     https://medium.com/@elad/normalize-css-or-css-reset-9d75175c5d1e
   */
 
-:root {
+body.light-mode {
+  --background-color: #f5f7fb;
+  --heading-color: #485374;
+  --text-color: #485374;
+}
+body.dark-mode {
   --background-color: #222429;
   --heading-color: #ffffff;
   --text-color: #ffffff;
+}
+body {
+  transition-property: background color;
+  transition-duration: 0.2s;
 }
 *,
 *::before,

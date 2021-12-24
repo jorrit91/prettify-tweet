@@ -2,10 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "moduleResolution": "node",
     "noEmit": true,
     "skipLibCheck": true,
@@ -13,15 +10,9 @@
     "strict": false,
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "./components/*"
-      ],
-      "@lib/*": [
-        "./lib/*"
-      ],
-      "@config/*": [
-        "./config/*"
-      ]
+      "@components/*": ["./components/*"],
+      "@lib/*": ["./lib/*"],
+      "@config/*": ["./config/*"]
     },
     "target": "es5",
     "allowJs": true,
@@ -36,9 +27,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "./node_modules/@sanity/base/types/**/*.ts"
+    "./node_modules/@sanity/base/types/**/*.ts",
+    "public/determine-theme.js"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
