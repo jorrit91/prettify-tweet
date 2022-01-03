@@ -96,6 +96,14 @@ export const inputStyles = parse(
       font-weight: ${theme.fontWeights.bold};
     }
 
+    &[data-filled] {
+      padding-right: 3.5rem;
+    }
+
+    @media screen and (min-width: ${theme.breakpoints.large}) {
+      height: 4.5rem;
+    }
+
     @supports not (background: paint(squircle)) {
       outline: none;
       border: 1px solid var(--input-border-color);
@@ -154,3 +162,46 @@ export const inputStyles = parse(
 export const label = parse({
   display: 'none',
 })
+
+export const removeValue = parse(
+  {
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  css`
+    background-color: var(--input-remove-value-background);
+    color: var(--input-remove-value-color);
+    border-radius: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    pointer-events: none;
+
+    svg {
+      height: 0.75rem;
+      width: 0.75rem;
+    }
+
+    @media screen and (min-width: ${theme.breakpoints.large}) {
+      height: 2rem;
+      width: 2rem;
+
+      svg {
+        height: 1.25rem;
+        width: 1.25rem;
+      }
+    }
+
+    &[data-visible] {
+      opacity: 1;
+      pointer-events: all;
+    }
+  `
+)

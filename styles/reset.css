@@ -21,6 +21,8 @@ body {
   --input-background: #333740;
   --input-focus-border-color: #253566;
   --input-border-color: #494d59;
+  --input-remove-value-background: #7d849a;
+  --input-remove-value-color: #ffffff;
 
   /* radio group */
   --radio-group-background: #1b1d21;
@@ -51,6 +53,8 @@ body.light-mode {
   --input-background: #ffffff;
   --input-focus-border-color: #b9c9f8;
   --input-border-color: #b8c0d8;
+  --input-remove-value-background: #e8ebf3;
+  --input-remove-value-color: #485374;
 
   /* radio group */
   --radio-group-background: #ffffff;
