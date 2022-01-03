@@ -11,6 +11,7 @@ body {
   --background-color: #222429;
   --text-color: #ffffff;
   --footer-color: #7d849a;
+  --footer-color-hover: #ffffff;
 
   /* buttons */
   --icon-button-color: #ffffff;
@@ -42,6 +43,7 @@ body.light-mode {
   --background-color: #f5f7fb;
   --text-color: #485374;
   --footer-color: #969fba;
+  --footer-color-hover: #7d849a;
 
   /* buttons */
   --icon-button-color: #485374;

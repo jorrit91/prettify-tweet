@@ -12,7 +12,7 @@ import { Button } from '@components/ui/buttons/Button'
 const Home: NextPage = () => {
   return (
     <HomepagePage>
-      <Container>
+      <Container className={container}>
         <div className={content}>
           <Heading variant="h1" as="h2" mb={{ _: '24', large: '32' }}>
             ✨
@@ -25,6 +25,7 @@ const Home: NextPage = () => {
             platform.
           </Text>
           <Input
+            autoFocus
             name="enter-tweet-url"
             placeholder="Enter Tweet URL"
             label="Enter url"
@@ -69,9 +70,7 @@ const container = parse(
     justifyContent: 'center',
     alignItems: 'center',
   },
-  css`
-    height: 100vh;
-  `
+  css``
 )
 
 const content = parse(
