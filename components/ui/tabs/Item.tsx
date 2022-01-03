@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
-import * as RadioGroup from '@radix-ui/react-radio-group'
-import { parse, theme } from '@config/theme'
+import { parse } from '@config/theme'
 import { css } from '@linaria/core'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 import { m } from 'framer-motion'
+import React, { FC } from 'react'
 import { Text } from '../typograhpy/Text'
 
 type TabItemProps = {
@@ -43,18 +43,21 @@ const parent = parse(
   css`
     flex-shrink: 0;
     outline: none;
-    color: ${theme.colors.shade200};
+    color: var(--tabs-text-color);
     transition-property: color;
     transition-duration: 0.2s;
 
     @media screen and (hover: hover) and (pointer: fine) {
       &:not(:disabled):hover {
-        color: white;
+        color: var(--tabs-text-color-active);
       }
     }
 
+    &[data-active] * {
+      color: var(--radio-group-active-color);
+    }
     &[data-active] {
-      color: white;
+      color: var(--radio-group-active-color);
     }
 
     &:focus-visible {
@@ -84,7 +87,7 @@ const active = parse(
     display: 'block',
   },
   css`
-    background: white;
+    background: var(--tabs-border-color-active);
     bottom: -1px;
     left: 0;
     z-index: 0;

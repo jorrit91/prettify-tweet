@@ -1,4 +1,4 @@
-import { parse, theme } from '@config/theme'
+import { parse } from '@config/theme'
 import { css } from '@linaria/core'
 import * as RadixRadioGroup from '@radix-ui/react-radio-group'
 import { LayoutGroup } from 'framer-motion'
@@ -47,6 +47,6 @@ const parent = parse(
   },
   css`
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    border-bottom: 1px solid ${theme.colors.shade300};
+    border-bottom: 1px solid var(--tabs-border-color-track);
   `
 )

@@ -13,7 +13,13 @@ const Styleguide: NextPage<StyleguideProps> = ({ pages }) => {
     <Container mt="20">
       {pages.map((page) => (
         <Link href={`/styleguide/${page}`} key={page}>
-          <a style={{ color: 'white', display: 'block', marginBottom: '1rem' }}>
+          <a
+            style={{
+              color: '--text-colords',
+              display: 'block',
+              marginBottom: '1rem',
+            }}
+          >
             {page.charAt(0).toUpperCase() + page.slice(1)}
           </a>
         </Link>

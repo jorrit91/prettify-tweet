@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
-import * as RadioGroup from '@radix-ui/react-radio-group'
-import { parse, theme } from '@config/theme'
+import { parse } from '@config/theme'
 import { css } from '@linaria/core'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 import { m } from 'framer-motion'
+import React, { FC } from 'react'
 
 type RadioGroupItemProps = {
   value: string
@@ -24,7 +24,9 @@ export const RadioGroupItem: FC<RadioGroupItemProps> = ({
           data-active-squircle
         />
       )}
-      <span className={child}>{children}</span>
+      <span className={child} data-active={isActive ? '' : undefined}>
+        {children}
+      </span>
     </RadioGroup.Item>
   )
 }
@@ -61,6 +63,16 @@ const child = parse(
   },
   css`
     z-index: 1;
+
+    * {
+      color: var(--radio-group-color);
+      transition-property: color;
+      transition-duration: 0.2s;
+    }
+
+    &[data-active] * {
+      color: var(--radio-group-active-color);
+    }
   `
 )
 
@@ -77,14 +89,14 @@ const active = parse(
     z-index: 0;
 
     @supports not (background: paint(squircle)) {
-      background: ${theme.colors.shade400};
+      background: var(--radio-group-active-background);
       border-radius: 0.5rem;
     }
 
     @supports (background: paint(squircle)) {
       --squircle-radius: 10px;
       --squircle-smooth: 10;
-      --squircle-fill: ${theme.colors.shade400};
+      --squircle-fill: var(--radio-group-active-background);
       border-radius: 0;
       background: paint(squircle);
     }
