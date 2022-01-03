@@ -1,7 +1,8 @@
 import { AppTheme, parseAll } from '@config/theme'
 import { cx } from '@linaria/core'
-import React, { InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes, useEffect, useState } from 'react'
 import { ThemeSystemProps } from 'theme-system'
+import { IconClose } from '../icons/IconClose'
 import * as styles from './Input.styles'
 
 type InputStatus = 'idle' | 'error' | 'disabled'
@@ -11,8 +12,9 @@ type InputStatusProp = {
 
 export type InputProps = Pick<ThemeSystemProps<AppTheme>, 'mb'> &
   InputStatusProp &
-  InputHTMLAttributes<HTMLInputElement> & {
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
     label: string
+    onChange: (value: string) => void //eslint-disable-line
   }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -31,6 +33,24 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    const [isFilled, setIsFilled] = useState(() => {
+      if (typeof value === 'string') {
+        return value.length > 0
+      } else if (typeof value === 'number') {
+        return true
+      } else {
+        return false
+      }
+    })
+
+    useEffect(() => {
+      if (typeof value === 'string' && value.length === 0) {
+        setIsFilled(false)
+      } else {
+        setIsFilled(true)
+      }
+    }, [value])
+
     const id = rest.id || name
     return (
       <div className={cx(styles.inputContainer, className, parseAll({ mb }))}>
@@ -44,6 +64,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           name={name}
           value={value}
           id={id}
+          data-filled={isFilled ? '' : undefined}
           disabled={status === 'disabled'}
           {...rest}
         />
@@ -51,11 +72,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <label className={styles.label} htmlFor={id}>
           {label}
         </label>
+        <button
+          className={styles.removeValue}
+          data-visible={isFilled ? '' : undefined}
+          onClick={() => onChange('')}
+        >
+          <IconClose />
+        </button>
       </div>
     )
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-      onChange && onChange(e)
+      onChange && onChange(e.target.value)
     }
     function handleFocus(e: React.FocusEvent<HTMLInputElement>) {
       onFocus && onFocus(e)
