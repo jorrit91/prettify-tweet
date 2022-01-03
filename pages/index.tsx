@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NextPage } from 'next'
 import { Heading } from '@components/ui/typograhpy/Heading'
 import { Text } from '@components/ui/typograhpy/Text'
@@ -10,6 +10,8 @@ import { Input } from '@components/ui/form/Input'
 import { Button } from '@components/ui/buttons/Button'
 
 const Home: NextPage = () => {
+  const [firstValue, setFirstValue] = useState('')
+
   return (
     <HomepagePage>
       <Container className={container}>
@@ -30,6 +32,8 @@ const Home: NextPage = () => {
             placeholder="Enter Tweet URL"
             label="Enter url"
             mb={{ _: '24', medium: '32' }}
+            value={firstValue}
+            onChange={(e) => setFirstValue(e)}
           />
           <Button mb="16" status="disabled" width="fill">
             Prettify!

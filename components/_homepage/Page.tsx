@@ -67,6 +67,7 @@ const footer = parse(
   {
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   css`
     span,
