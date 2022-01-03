@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import { parse } from '@config/theme'
+import { css } from '@linaria/core'
 import * as RadixRadioGroup from '@radix-ui/react-radio-group'
 import { LayoutGroup } from 'framer-motion'
-import { parse, theme } from '@config/theme'
-import { css } from '@linaria/core'
 import { rem } from 'polished'
+import React, { FC } from 'react'
 
 type RadioGroupProps = {
   children: React.ReactNode
@@ -40,8 +40,8 @@ const parent = parse(
     padding: ${rem(6)};
 
     @supports not (background: paint(squircle)) {
-      border: 1px solid ${theme.colors.shade300};
-      background: ${theme.colors.shade600};
+      border: 1px solid var(--radio-group-border);
+      background: var(--radio-group-background);
       border-radius: 0.75rem;
       box-shadow: 0px 1px 3px #141721;
     }
@@ -49,10 +49,10 @@ const parent = parse(
     @supports (background: paint(squircle)) {
       --squircle-radius: 16px;
       --squircle-smooth: 16;
-      --squircle-fill: ${theme.colors.shade600};
+      --squircle-fill: var(--radio-group-background);
       border-radius: 0;
       background: paint(squircle);
-      filter: drop-shadow(0px 1px 3px #141721);
+      filter: drop-shadow(var(--radio-group-shadow));
 
       &:after {
         content: '';
@@ -67,7 +67,7 @@ const parent = parse(
         --squircle-radius: 16px;
         --squircle-smooth: 16;
         --squircle-outline: 1px;
-        --squircle-fill: ${theme.colors.shade300};
+        --squircle-fill: var(--radio-group-border);
         background: paint(squircle);
       }
     }

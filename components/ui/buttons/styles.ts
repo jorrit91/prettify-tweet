@@ -1,6 +1,5 @@
 import { parse, theme } from '@config/theme'
 import { css } from '@linaria/core'
-import { rgba } from 'polished'
 
 export const button = parse(
   {
@@ -23,6 +22,10 @@ export const button = parse(
     transition-property: all;
     transition-duration: 0.2s;
     outline: none;
+
+    span {
+      color: white;
+    }
 
     @supports not (background: paint(squircle)) {
       border-radius: 0.75rem;
@@ -73,14 +76,21 @@ export const button = parse(
         transition-duration: 0.2s;
         --squircle-radius: 20px;
         --squircle-smooth: 20;
-        --squircle-fill: black;
+        --squircle-fill: var(--icon-button-hover-background);
         background: paint(squircle);
         opacity: 0;
+      }
+
+      &[data-variant='default']:before {
+        --squircle-fill: black;
       }
 
       @media screen and (hover: hover) and (pointer: fine) {
         &:not(:disabled):hover {
           &:before {
+            opacity: 1;
+          }
+          &[data-variant='default']:before {
             opacity: 0.2;
           }
         }
@@ -136,17 +146,20 @@ export const iconButton = css`
   height: 3rem;
 
   @supports (background: paint(squircle)) {
-    --squircle-fill: ${theme.colors.shade400};
+    --squircle-fill: var(--icon-button-background);
   }
 
   @supports not (background: paint(squircle)) {
     border-radius: 0.75rem;
-    background: ${theme.colors.shade400};
+    background: var(--icon-button-background);
 
     @media screen and (hover: hover) and (pointer: fine) {
       &:not(:disabled):hover {
-        background: ${rgba(theme.colors.shade400, 0.5)};
+        background: var(--icon-button-hover-background);
       }
+    }
+    &:disabled {
+      background: var(--icon-button-hover-background);
     }
   }
 
@@ -174,5 +187,10 @@ export const iconContainer = parse(
     transition-property: transform;
     transition-duration: 0.2s;
     z-index: 0;
+
+    svg,
+    path {
+      color: var(--icon-button-color) !important;
+    }
   `
 )

@@ -44,6 +44,7 @@ export const Button: FC<ButtonProps> = ({
     <Element
       {...rest}
       className={cx(styles.button, className, parseAll({ mb }))}
+      data-variant="default"
       data-auto-width={width === 'auto' ? '' : undefined}
       data-status={status}
       disabled={status === 'loading' || status === 'disabled'}

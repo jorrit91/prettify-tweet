@@ -17,5 +17,5 @@ h4,
 h5,
 h6 {
   font-family: 'Noto Serif', serif;
-  color: var(--heading-color);
+  color: var(--text-color);
 }

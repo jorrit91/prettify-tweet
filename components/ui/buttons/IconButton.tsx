@@ -58,7 +58,7 @@ export const IconButton: FC<IconButtonProps> = ({
       data-loading={status === 'loading' ? '' : undefined}
     >
       <span className={styles.iconContainer} data-icon-container>
-        {icon === 'arrow-left' && <IconArrowLeft />}
+        {icon === 'arrow-left' && <IconArrowLeft color="white" />}
         {icon === 'close' && <IconClose />}
       </span>
       {status === 'loading' && (
