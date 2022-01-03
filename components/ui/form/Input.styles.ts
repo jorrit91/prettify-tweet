@@ -22,7 +22,7 @@ export const squircleHelper = parse(
       --squircle-radius: 20px;
       --squircle-smooth: 20;
       --squircle-outline: 1px;
-      --squircle-fill: ${theme.colors.shade300};
+      --squircle-fill: var(--input-border-color);
       background: paint(squircle);
       pointer-events: none;
 
@@ -59,7 +59,7 @@ export const squircleHelper = parse(
         --squircle-radius: 18px;
         --squircle-smooth: 20;
         --squircle-outline: 0;
-        --squircle-fill: ${theme.colors.darkBlue};
+        --squircle-fill: var(--input-focus-border-color);
         background: paint(squircle);
         transform-origin: center center;
         transform: scale(0.9);
@@ -75,10 +75,10 @@ export const inputStyles = parse(
     width: '100%',
     display: 'flex',
     alignItems: 'center',
-    color: 'white',
-    bg: 'shade400',
   },
   css`
+    color: var(--input-color);
+    background-color: var(--input-background);
     height: 4rem;
     font-size: ${rem(18)};
     line-height: 4rem;
@@ -91,18 +91,18 @@ export const inputStyles = parse(
     }
 
     &::placeholder {
-      color: white;
+      color: var(--input-color);
       text-align: center;
       font-weight: ${theme.fontWeights.bold};
     }
 
     @supports not (background: paint(squircle)) {
       outline: none;
-      border: 1px solid ${theme.colors.shade300};
+      border: 1px solid var(--input-border-color);
       border-radius: 0.75rem;
       transition-property: border box-shadow;
       transition-duration: 0.2s;
-      box-shadow: 0 0 0 0 ${theme.colors.darkBlue};
+      box-shadow: 0 0 0 0 var(--input-focus-border-color);
 
       @media screen and (hover: hover) and (pointer: fine) {
         &:hover {
@@ -113,7 +113,7 @@ export const inputStyles = parse(
       &:active,
       &:focus-within {
         border-color: ${theme.colors.brightBlueHover};
-        box-shadow: 0 0 0 3px ${theme.colors.darkBlue};
+        box-shadow: 0 0 0 3px var(--input-focus-border-color);
       }
     }
 
@@ -122,7 +122,7 @@ export const inputStyles = parse(
       border: 0;
       --squircle-radius: 20px;
       --squircle-smooth: 20;
-      --squircle-fill: ${theme.colors.shade400};
+      --squircle-fill: var(--input-background);
       border-radius: 0;
       background: paint(squircle);
       z-index: 1;

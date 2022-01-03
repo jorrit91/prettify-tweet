@@ -19,6 +19,8 @@ body {
   /* input */
   --input-color: #ffffff;
   --input-background: #333740;
+  --input-focus-border-color: #253566;
+  --input-border-color: #494d59;
 
   /* radio group */
   --radio-group-background: #1b1d21;
@@ -47,6 +49,8 @@ body.light-mode {
   /* input */
   --input-color: #485374;
   --input-background: #ffffff;
+  --input-focus-border-color: #b9c9f8;
+  --input-border-color: #b8c0d8;
 
   /* radio group */
   --radio-group-background: #ffffff;
