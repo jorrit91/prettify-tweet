@@ -8,9 +8,12 @@ import { css } from '@linaria/core'
 import { HomepagePage } from '@components/_homepage/Page'
 import { Input } from '@components/ui/form/Input'
 import { Button } from '@components/ui/buttons/Button'
+import { Link } from '@components/ui/link'
+import { Modal } from '@components/ui/dialog'
+import { AutoPlayVideo } from '@components/_homepage/AutoPlayVideo'
 
 const Home: NextPage = () => {
-  const [firstValue, setFirstValue] = useState('')
+  const [value, setValue] = useState('')
 
   return (
     <HomepagePage>
@@ -32,39 +35,28 @@ const Home: NextPage = () => {
             placeholder="Enter Tweet URL"
             label="Enter url"
             mb={{ _: '24', medium: '32' }}
-            value={firstValue}
-            onChange={(e) => setFirstValue(e)}
+            value={value}
+            onChange={(e) => setValue(e)}
           />
-          <Button mb="16" status="disabled" width="fill">
+          <Button mb="32" status="disabled" width="fill">
             Prettify!
           </Button>
+          <Modal
+            title="Copy URL"
+            triggerButton={
+              <Link size="small" as="button">
+                💡 Where to find your tweets’ URL?
+              </Link>
+            }
+          >
+            <AutoPlayVideo
+              videoSrc="/find-tweet-url.mp4"
+              placeholderSrc="/find-tweet-url-placeholder.jpg"
+            />
+          </Modal>
         </div>
       </Container>
     </HomepagePage>
-    // <Container className={container}>
-    //   <div className={content}>
-    //     <Heading variant="h1" as="h1" mb="24">
-    //       ✨
-    //     </Heading>
-    //     <Heading variant="h1" as="h1" mb="24">
-    //       Prettify tweet
-    //     </Heading>
-    //     <Text variant="regular" mb="0">
-    //       Keep track of the{' '}
-    //       <a
-    //         href="https://twitter.com/search?q=%23buildinpublic"
-    //         target="blank"
-    //       >
-    //         #buildinpublic
-    //       </a>{' '}
-    //       journey of this product by following{' '}
-    //       <a href="https://twitter.com/jorrittempelman" target="blank">
-    //         Jorrit Tempelman
-    //       </a>{' '}
-    //       on Twitter.
-    //     </Text>
-    //   </div>
-    // </Container>
   )
 }
 
