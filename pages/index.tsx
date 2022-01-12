@@ -1,19 +1,35 @@
-import React, { useState } from 'react'
-import { NextPage } from 'next'
+import { Button } from '@components/ui/buttons/Button'
+import { Container } from '@components/ui/Container'
+import { Input } from '@components/ui/form/Input'
 import { Heading } from '@components/ui/typograhpy/Heading'
 import { Text } from '@components/ui/typograhpy/Text'
-import { Container } from '@components/ui/Container'
-import { parse } from '@config/theme'
-import { css } from '@linaria/core'
+import { HomepageInfo } from '@components/_homepage/Info'
 import { HomepagePage } from '@components/_homepage/Page'
-import { Input } from '@components/ui/form/Input'
-import { Button } from '@components/ui/buttons/Button'
-import { Link } from '@components/ui/link'
-import { Modal } from '@components/ui/dialog'
-import { AutoPlayVideo } from '@components/_homepage/AutoPlayVideo'
+import { parse } from '@config/theme'
+import { extractTweetId } from '@lib/extract-tweet-id'
+import { validateTwitterUrl } from '@lib/validate-twitter-url'
+import { css } from '@linaria/core'
+import { NextPage } from 'next'
+import { useRouter } from 'next/dist/client/router'
+import React, { useEffect, useState } from 'react'
+import { useDebounce } from 'use-debounce'
 
-const Home: NextPage = () => {
+export type HomepageStatus = 'idle' | 'valid' | 'error' | 'loading'
+
+const Homepage: NextPage = () => {
+  const router = useRouter()
   const [value, setValue] = useState('')
+  const [status, setStatus] = useState<HomepageStatus>('idle')
+  const [debouncedValue] = useDebounce(value, 300)
+
+  useEffect(() => {
+    if (value.length > 0) {
+      const valid = validateTwitterUrl(debouncedValue)
+      setStatus(valid ? 'valid' : 'error')
+    } else {
+      setStatus('idle')
+    }
+  }, [debouncedValue])
 
   return (
     <HomepagePage>
@@ -29,45 +45,61 @@ const Home: NextPage = () => {
             Effortlessly generate beautiful images from tweets to share on any
             platform.
           </Text>
-          <Input
-            autoFocus
-            name="enter-tweet-url"
-            placeholder="Enter Tweet URL"
-            label="Enter url"
-            mb={{ _: '24', medium: '32' }}
-            value={value}
-            onChange={(e) => setValue(e)}
-          />
-          <Button mb="32" status="disabled" width="fill">
-            Prettify!
-          </Button>
-          <Modal
-            title="Copy URL"
-            triggerButton={
-              <Link size="small" as="button">
-                💡 Where to find your tweets’ URL?
-              </Link>
-            }
-          >
-            <AutoPlayVideo
-              videoSrc="/find-tweet-url.mp4"
-              placeholderSrc="/find-tweet-url-placeholder.jpg"
+          <form onSubmit={handleSubmit}>
+            <Input
+              autoFocus
+              name="enter-tweet-url"
+              placeholder="Enter Tweet URL"
+              label="Enter url"
+              mb={{ _: '24', medium: '32' }}
+              value={value}
+              onChange={(e) => setValue(e)}
             />
-          </Modal>
+            <Button
+              mb="32"
+              type="submit"
+              status={
+                status === 'valid'
+                  ? 'idle'
+                  : status === 'loading'
+                  ? 'loading'
+                  : 'disabled'
+              }
+              width="fill"
+            >
+              Prettify!
+            </Button>
+          </form>
+          {status === 'error' && (
+            <Text variant="small" color="error" mb="12">
+              Oops! It looks like your URL looks funny...
+            </Text>
+          )}
+          <HomepageInfo status={status} />
         </div>
       </Container>
     </HomepagePage>
   )
+
+  async function handleSubmit(e: React.SyntheticEvent) {
+    e.preventDefault()
+    setStatus('loading')
+    if (status === 'valid') {
+      try {
+        const id = extractTweetId(value)
+        router.push(`/configure/${id}`)
+      } catch (error) {
+        setStatus('error')
+      }
+    }
+  }
 }
 
-const container = parse(
-  {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  css``
-)
+const container = parse({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+})
 
 const content = parse(
   {
@@ -83,4 +115,4 @@ const content = parse(
   `
 )
 
-export default Home
+export default Homepage

@@ -1,0 +1,15 @@
+overwrite: true
+schema: 'http://localhost:4000/graphql'
+documents: './graphql/*.graphql'
+generates:
+  ./__generated__/codegen.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-request'
+    config:
+      avoidOptionals: true
+      skipTypeNameForRoot: true
+  ./__generated__/schema.json:
+    plugins:
+      - 'introspection'

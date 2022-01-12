@@ -1,0 +1,10 @@
+query GetTweetData($tweetId: String!) {
+  getTweetData(tweetId: $tweetId) {
+    name
+    username
+    profileImageUrl
+    createdAt
+    text
+    source
+  }
+}

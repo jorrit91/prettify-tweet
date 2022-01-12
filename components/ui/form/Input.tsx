@@ -74,6 +74,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </label>
         <button
           className={styles.removeValue}
+          type="button"
           data-visible={isFilled ? '' : undefined}
           onClick={() => onChange('')}
         >

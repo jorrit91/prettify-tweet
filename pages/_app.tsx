@@ -6,12 +6,17 @@ import { LazyMotion, domMax } from 'framer-motion'
 import '../styles/font-face.css'
 import '../styles/global-styles.css'
 import '../styles/reset.css'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
-    <LazyMotion features={domMax}>
-      <Component {...pageProps} />
-    </LazyMotion>
+    <QueryClientProvider client={queryClient}>
+      <LazyMotion features={domMax}>
+        <Component {...pageProps} />
+      </LazyMotion>
+    </QueryClientProvider>
   )
 }
 

@@ -12,7 +12,8 @@
     "paths": {
       "@components/*": ["./components/*"],
       "@lib/*": ["./lib/*"],
-      "@config/*": ["./config/*"]
+      "@config/*": ["./config/*"],
+      "@generated": ["./__generated__/codegen.ts"]
     },
     "target": "es5",
     "allowJs": true,

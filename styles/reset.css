@@ -23,6 +23,8 @@ body {
   --input-background: #333740;
   --input-focus-border-color: #253566;
   --input-border-color: #494d59;
+  --input-error-border-color: #f24822;
+  --input-error-shadow-color: #6b3428;
   --input-remove-value-background: #7d849a;
   --input-remove-value-color: #ffffff;
 
@@ -63,6 +65,8 @@ body.light-mode {
   --input-background: #ffffff;
   --input-focus-border-color: #b9c9f8;
   --input-border-color: #b8c0d8;
+  --input-error-border-color: #f24822;
+  --input-error-shadow-color: #f4d4d0;
   --input-remove-value-background: #e8ebf3;
   --input-remove-value-color: #485374;
 
