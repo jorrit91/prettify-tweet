@@ -13,7 +13,7 @@ export const button = parse(
     color: 'white',
   },
   css`
-    height: 3rem;
+    height: 3.5rem;
     overflow: hidden;
     font-size: 18px;
     line-height: 1.2;
@@ -25,6 +25,9 @@ export const button = parse(
 
     span {
       color: white;
+    }
+    @media screen and (min-width: ${theme.breakpoints.large}) {
+      height: 4rem;
     }
 
     @supports not (background: paint(squircle)) {

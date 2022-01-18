@@ -49,14 +49,14 @@ export const squircleHelper = parse(
         content: '';
         position: absolute;
         display: block;
-        top: -2px;
-        left: -2px;
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
+        top: -3px;
+        left: -3px;
+        width: calc(100% + 6px);
+        height: calc(100% + 6px);
         opacity: 0;
         transition-property: transform, opacity;
         transition-duration: 0.2s;
-        --squircle-radius: 18px;
+        --squircle-radius: 22px;
         --squircle-smooth: 20;
         --squircle-outline: 0;
         --squircle-fill: var(--input-focus-border-color);
@@ -122,6 +122,14 @@ export const inputStyles = parse(
       &:focus-within {
         border-color: ${theme.colors.brightBlueHover};
         box-shadow: 0 0 0 3px var(--input-focus-border-color);
+
+        &[data-status='error'] {
+          box-shadow: 0 0 0 3px var(--input-error-shadow-color);;
+        }
+      }
+
+      &[data-status='error'] {
+        border-color: var(--input-error-border-color);
       }
     }
 
@@ -134,7 +142,7 @@ export const inputStyles = parse(
       border-radius: 0;
       background: paint(squircle);
       z-index: 1;
-      filter: drop-shadow(0px 1px 1 px #141721);
+      filter: drop-shadow(0px 1px 1px var(--input-focus-border-color));
 
       @media screen and (hover: hover) and (pointer: fine) {
         &:not(:disabled):hover {
@@ -154,6 +162,15 @@ export const inputStyles = parse(
           opacity: 1;
           transform: scale(1);
         }
+      }
+
+      &[data-status='error'] {
+        + [data-squircle-helper]:after {
+          --squircle-fill: var(--input-error-shadow-color);
+        }
+        + [data-squircle-helper]:before {
+          --squircle-fill: var(--input-error-border-color);
+          opacity: 1;
       }
     }
   `

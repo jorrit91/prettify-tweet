@@ -10,6 +10,8 @@ body {
 
   --background-color: #222429;
   --text-color: #ffffff;
+  --footer-color: #7d849a;
+  --footer-color-hover: #ffffff;
 
   /* buttons */
   --icon-button-color: #ffffff;
@@ -21,6 +23,8 @@ body {
   --input-background: #333740;
   --input-focus-border-color: #253566;
   --input-border-color: #494d59;
+  --input-error-border-color: #f24822;
+  --input-error-shadow-color: #6b3428;
   --input-remove-value-background: #7d849a;
   --input-remove-value-color: #ffffff;
 
@@ -37,11 +41,19 @@ body {
   --tabs-text-color-active: #ffffff;
   --tabs-border-color-track: #333740;
   --tabs-border-color-active: #ffffff;
+
+  /* modal */
+  --modal-overlay: #222429;
+  --modal-background: #333740;
+  --modal-border: #494d59;
+  --modal-shadow: 0px 1px 3px #141721;
 }
 
 body.light-mode {
   --background-color: #f5f7fb;
   --text-color: #485374;
+  --footer-color: #969fba;
+  --footer-color-hover: #7d849a;
 
   /* buttons */
   --icon-button-color: #485374;
@@ -53,6 +65,8 @@ body.light-mode {
   --input-background: #ffffff;
   --input-focus-border-color: #b9c9f8;
   --input-border-color: #b8c0d8;
+  --input-error-border-color: #f24822;
+  --input-error-shadow-color: #f4d4d0;
   --input-remove-value-background: #e8ebf3;
   --input-remove-value-color: #485374;
 
@@ -69,6 +83,12 @@ body.light-mode {
   --tabs-text-color-active: #485374;
   --tabs-border-color-track: #e8ebf3;
   --tabs-border-color-active: #3061f6;
+
+  /* modal */
+  --modal-overlay: #f5f7fb;
+  --modal-background: #ffffff;
+  --modal-border: #b8c0d8;
+  --modal-shadow: 0px 1px 3px #d5d8e1;
 }
 *,
 *::before,
