@@ -46,7 +46,7 @@
     "eslint-plugin-react-hooks": "4.3.0",
     "prettier": "2.5.0",
     "prop-types": "15.8.1",
-    "typescript": "4.5.4"
+    "typescript": "4.5.5"
   },
   "dependencies": {
     "@linaria/babel-preset": "3.0.0-beta.13",
