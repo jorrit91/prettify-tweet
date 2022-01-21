@@ -6,5 +6,6 @@ query GetTweetData($tweetId: String!) {
     createdAt
     text
     source
+    verified
   }
 }
