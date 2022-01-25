@@ -19,15 +19,20 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
 }) => {
   const state = useConfiguratorStore()
   return (
-    <div className={parent} data-colors={state.color}>
+    <div
+      className={parent}
+      data-colors={state.color}
+      data-layout={state.layout}
+    >
       <PreviewUser
         profileImageUrl={profileImageUrl}
         name={name}
         username={username}
         verified={verified}
+        layout={state.layout}
       />
-      <PreviewBody text={text} />
-      <PreviewMetadata createdAt={createdAt} />
+      <PreviewBody text={text} layout={state.layout} />
+      <PreviewMetadata createdAt={createdAt} layout={state.layout} />
     </div>
   )
 }
@@ -44,12 +49,18 @@ const parent = parse(
     --preview-border: #B8C0D8;
     --preview-text-color: #485374;
     --preview-meta-text-color: #969FBA;
-
+    
     &[data-colors="dark"]{
       --preview-background: #333740;
       --preview-border: #494d59;
       --preview-text-color: #FFFFFF;
       --preview-meta-text-color: #7D849A;
+    }
+
+    @supports not (background: paint(squircle)) {
+      border-radius: 0.75rem;
+      background: var(--preview-background);
+      border: 1px solid var(--preview-border);
     }
 
     @supports (background: paint(squircle)) {

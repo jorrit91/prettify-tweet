@@ -3,6 +3,7 @@ import { Heading } from '@components/ui/typograhpy/Heading'
 import { Text } from '@components/ui/typograhpy/Text'
 import { parse } from '@config/theme'
 import { css } from '@linaria/core'
+import Link from 'next/link'
 import React, { FC } from 'react'
 
 type PageProps = {
@@ -12,14 +13,18 @@ type PageProps = {
 export const Page: FC<PageProps> = ({ children }) => {
   return (
     <div className={parent}>
-      <Heading
-        variant="h1"
-        as="h2"
-        mb={{ _: '24', large: '32' }}
-        className={logo}
-      >
-        ✨
-      </Heading>
+      <Link href="/" passHref>
+        <a>
+          <Heading
+            variant="h1"
+            as="h2"
+            mb={{ _: '24', large: '32' }}
+            className={logo}
+          >
+            ✨
+          </Heading>
+        </a>
+      </Link>
       {children}
       <Container as="footer" className={footer}>
         <Text as="span" variant="micro" color="inherit">
