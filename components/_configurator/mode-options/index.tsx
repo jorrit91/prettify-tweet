@@ -1,24 +1,40 @@
 import { AnimationParent } from '@components/AnimationParent'
 import { parse } from '@config/theme'
 import { AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/router'
 import React, { FC } from 'react'
-import shallow from 'zustand/shallow'
-import { useConfiguratorStore } from '../use-configurator-store'
+import {
+  Color as ColorOptions,
+  Layout as LayoutOptions,
+  Mode,
+} from '../use-configurator-store'
 import { Color } from './Color'
 import { Layout } from './Layout'
 import { Size } from './Size'
 
-export const ConfiguratorModeOptions: FC = () => {
-  const { mode } = useConfiguratorStore(
-    (state) => ({ mode: state.mode }),
-    shallow
-  )
+type ConfirugatorModeOptionsProps = {
+  color: ColorOptions
+  layout: LayoutOptions
+  mode: Mode
+}
+
+export const ConfiguratorModeOptions: FC<ConfirugatorModeOptionsProps> = ({
+  color,
+  layout,
+  mode,
+}) => {
+  const router = useRouter()
   return (
     <div className={parent}>
       <AnimatePresence exitBeforeEnter>
         {mode === 'layout' && (
           <AnimationParent key={mode}>
-            <Layout />
+            <Layout
+              layout={layout}
+              handleSetValue={(val: LayoutOptions) =>
+                updateUrlParams('layout', val)
+              }
+            />
           </AnimationParent>
         )}
         {mode === 'size' && (
@@ -28,12 +44,30 @@ export const ConfiguratorModeOptions: FC = () => {
         )}
         {mode === 'colors' && (
           <AnimationParent key={mode}>
-            <Color />
+            <Color
+              color={color}
+              handleSetValue={(val: ColorOptions) =>
+                updateUrlParams('color', val)
+              }
+            />
           </AnimationParent>
         )}
       </AnimatePresence>
     </div>
   )
+
+  function updateUrlParams(
+    param: 'color' | 'layout',
+    val: ColorOptions | LayoutOptions
+  ) {
+    router.push({
+      pathname: router.pathname,
+      query: {
+        ...router.query,
+        [param]: val,
+      },
+    })
+  }
 }
 
 const parent = parse({

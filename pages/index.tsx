@@ -29,7 +29,7 @@ const Homepage: NextPage = () => {
     } else {
       setStatus('idle')
     }
-  }, [debouncedValue])
+  }, [debouncedValue]) //eslint-disable-line
 
   return (
     <Page>

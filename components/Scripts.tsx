@@ -4,6 +4,7 @@ import React, { FC } from 'react'
 export const Scripts: FC = () => {
   return (
     <Script
+      id="squircle-script"
       strategy="beforeInteractive"
       dangerouslySetInnerHTML={{
         __html: `

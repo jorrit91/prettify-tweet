@@ -110,7 +110,7 @@ export const inputStyles = parse(
       border-radius: 0.75rem;
       transition-property: border box-shadow;
       transition-duration: 0.2s;
-      box-shadow: 0 0 0 0 var(--input-focus-border-color);
+      box-shadow: 0 0 0 0 var(--input-shadow-color);
 
       @media screen and (hover: hover) and (pointer: fine) {
         &:hover {
@@ -142,7 +142,7 @@ export const inputStyles = parse(
       border-radius: 0;
       background: paint(squircle);
       z-index: 1;
-      filter: drop-shadow(0px 1px 1px var(--input-focus-border-color));
+      filter: drop-shadow(0px 1px 1px var(--input-shadow-color));
 
       @media screen and (hover: hover) and (pointer: fine) {
         &:not(:disabled):hover {

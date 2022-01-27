@@ -1,19 +1,20 @@
 import { Tabs } from '@components/ui/tabs'
 import React, { FC } from 'react'
-import shallow from 'zustand/shallow'
-import { Mode, useConfiguratorStore } from './use-configurator-store'
+import { Mode } from './use-configurator-store'
 
-type ConfiguratorTabsProps = {}
+type ConfiguratorTabsProps = {
+  mode: Mode
+  handleSetMode: (val: Mode) => void
+}
 
-export const ConfiguratorTabs: FC<ConfiguratorTabsProps> = () => {
-  const { mode, setMode } = useConfiguratorStore(
-    (state) => ({ mode: state.mode, setMode: state.setMode }),
-    shallow
-  )
+export const ConfiguratorTabs: FC<ConfiguratorTabsProps> = ({
+  mode,
+  handleSetMode,
+}) => {
   return (
     <Tabs
       value={mode}
-      onValueChange={(val) => setMode(val as Mode)}
+      onValueChange={(val) => handleSetMode(val as Mode)}
       name="Choose layout"
       mb="32"
       items={[

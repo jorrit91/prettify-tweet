@@ -3,23 +3,18 @@ import { IconSun } from '@components/ui/icons/IconSun'
 import { RadioGroup } from '@components/ui/radio-group'
 import { RadioGroupItem } from '@components/ui/radio-group/Item'
 import React, { FC } from 'react'
-import shallow from 'zustand/shallow'
-import {
-  Color as ColorOptions,
-  useConfiguratorStore,
-} from '../use-configurator-store'
+import { Color as ColorOptions } from '../use-configurator-store'
 
-type ColorProps = {}
+type ColorProps = {
+  color: ColorOptions
+  handleSetValue: (val: ColorOptions) => void
+}
 
-export const Color: FC<ColorProps> = () => {
-  const { color, setColor } = useConfiguratorStore(
-    (state) => ({ color: state.color, setColor: state.setColor }),
-    shallow
-  )
+export const Color: FC<ColorProps> = ({ color, handleSetValue }) => {
   return (
     <RadioGroup
       value={color}
-      onValueChange={(val) => setColor(val as ColorOptions)}
+      onValueChange={(val) => handleSetValue(val as ColorOptions)}
       name="Select color"
     >
       <RadioGroupItem value="dark" isActive={color === 'dark'}>

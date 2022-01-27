@@ -1,13 +1,17 @@
 import { parse } from '@config/theme'
 import { Tweet } from '@generated'
 import { css } from '@linaria/core'
+import { m } from 'framer-motion'
 import React, { FC } from 'react'
-import { useConfiguratorStore } from '../use-configurator-store'
+import { Color, Layout } from '../use-configurator-store'
 import { PreviewBody } from './Body'
 import { PreviewMetadata } from './MetaData'
 import { PreviewUser } from './User'
 
-type ConfiguratorPreviewProps = Tweet
+type ConfiguratorPreviewProps = Tweet & {
+  color: Color
+  layout: Layout
+}
 
 export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
   name,
@@ -16,24 +20,21 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
   username,
   verified,
   createdAt,
+  color,
+  layout,
 }) => {
-  const state = useConfiguratorStore()
   return (
-    <div
-      className={parent}
-      data-colors={state.color}
-      data-layout={state.layout}
-    >
+    <m.div className={parent} data-colors={color} data-layout={layout} layout>
       <PreviewUser
         profileImageUrl={profileImageUrl}
         name={name}
         username={username}
         verified={verified}
-        layout={state.layout}
+        layout={layout}
       />
-      <PreviewBody text={text} layout={state.layout} />
-      <PreviewMetadata createdAt={createdAt} layout={state.layout} />
-    </div>
+      <PreviewBody text={text} layout={layout} />
+      <PreviewMetadata createdAt={createdAt} layout={layout} />
+    </m.div>
   )
 }
 

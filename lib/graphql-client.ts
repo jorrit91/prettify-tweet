@@ -4,7 +4,7 @@ import { GraphQLClient } from 'graphql-request'
 export function getGraphQLApiUrl(): string {
   let url = 'http://localhost:4000/graphql'
   if (process.env.NEXT_PUBLIC_STAGE !== 'development') {
-    url = 'https://api.prettifytweet.com/graphql'
+    url = 'https://prettify-tweet-api.herokuapp.com/graphql'
   }
   return url
 }
