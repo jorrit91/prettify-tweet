@@ -46,7 +46,7 @@ export const PreviewUser: FC<PreviewUserProps> = ({
         >
           <img src={profileImageUrl} alt={name} className={image} />
           <div>
-            <div className={nameArea}>
+            <div className={nameArea} data-text-container>
               <Text variant="small" as="span" data-variant="user">
                 {name}
               </Text>
@@ -92,6 +92,10 @@ const parent = parse(
       justify-items: center;
       grid-template-columns: 1fr;
       grid-template-rows: 3rem 1fr;
+
+      [data-text-container] {
+        justify-content: center;
+      }
     }
 
     span {

@@ -1,3 +1,4 @@
+import { Button } from '@components/ui/buttons/Button'
 import { Container } from '@components/ui/Container'
 import { ConfiguratorModeOptions } from '@components/_configurator/mode-options'
 import { ConfiguratorPreview } from '@components/_configurator/preview'
@@ -7,12 +8,15 @@ import {
   Layout,
   Mode,
 } from '@components/_configurator/use-configurator-store'
+import { ConfiguratorPage } from '@components/_homepage/ConfiguratorPage'
 import { Page } from '@components/_homepage/Page'
+import { parse, theme } from '@config/theme'
 import { Tweet } from '@generated'
 import { getGraphqlClient } from '@lib/graphql-client'
+import { css } from '@linaria/core'
 import { GetServerSideProps } from 'next'
-import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
+import { rem } from 'polished'
+import { FC, useState } from 'react'
 
 type ConfigurePageProps = {
   data: Tweet
@@ -21,48 +25,58 @@ type ConfigurePageProps = {
 const { sdk } = getGraphqlClient()
 
 export const ConfigurePage: FC<ConfigurePageProps> = ({ data }) => {
-  const router = useRouter()
   const [mode, setMode] = useState<Mode>('layout')
   const [color, setColor] = useState<Color>('dark')
   const [layout, setLayout] = useState<Layout>('auto')
 
-  useEffect(() => {
-    const { color: queryColor, layout: queryLayout } = router.query
-    if (!queryColor || !queryLayout) {
-      router.push({
-        pathname: router.asPath,
-        query: {
-          color,
-          layout,
-        },
-      })
-    }
-  }, []) //eslint-disable-line
-
-  useEffect(() => {
-    const { color, layout } = router.query
-    if (color || layout) {
-      if (color && ['light', 'dark'].includes(color as string)) {
-        setColor(color as Color)
-      }
-      if (layout && ['auto', 'centered'].includes(layout as string)) {
-        setLayout(layout as Layout)
-      }
-    }
-  }, [router.query])
-
   return (
-    <Page>
-      <div>
-        <ConfiguratorTabs mode={mode} handleSetMode={(val) => setMode(val)} />
-        <Container>
-          <ConfiguratorPreview {...data} color={color} layout={layout} />
-          <ConfiguratorModeOptions mode={mode} color={color} layout={layout} />
-        </Container>
-      </div>
-    </Page>
+    <ConfiguratorPage>
+      <ConfiguratorTabs mode={mode} handleSetMode={(val) => setMode(val)} />
+      <Container className={grid}>
+        <ConfiguratorPreview {...data} color={color} layout={layout} />
+        <div className={buttons}>
+          <ConfiguratorModeOptions
+            mode={mode}
+            color={color}
+            layout={layout}
+            setColor={setColor}
+            setLayout={setLayout}
+          />
+          <Button width="fill">Save & Download</Button>
+        </div>
+      </Container>
+    </ConfiguratorPage>
   )
 }
+
+const buttons = parse(
+  {},
+  css`
+    @media screen and (min-width: ${theme.breakpoints.medium}) {
+      justify-self: center;
+    }
+  `
+)
+
+const grid = parse(
+  {
+    display: 'grid',
+    height: '100%',
+  },
+  css`
+    grid-template-rows: 1fr auto;
+    grid-gap: 1rem;
+    grid-auto-flow: row;
+
+    @media screen and (min-width: ${theme.breakpoints.medium}) {
+      max-width: 29rem;
+    }
+
+    @media screen and (min-width: ${theme.breakpoints.large}) {
+      max-width: ${rem(1100)};
+    }
+  `
+)
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   if (!query.id) {

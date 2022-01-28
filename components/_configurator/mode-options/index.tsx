@@ -1,7 +1,7 @@
 import { AnimationParent } from '@components/AnimationParent'
 import { parse } from '@config/theme'
-import { AnimatePresence } from 'framer-motion'
-import { useRouter } from 'next/router'
+import { css } from '@linaria/core'
+import { AnimatePresence, LayoutGroup } from 'framer-motion'
 import React, { FC } from 'react'
 import {
   Color as ColorOptions,
@@ -10,69 +10,78 @@ import {
 } from '../use-configurator-store'
 import { Color } from './Color'
 import { Layout } from './Layout'
-import { Size } from './Size'
 
 type ConfirugatorModeOptionsProps = {
   color: ColorOptions
   layout: LayoutOptions
   mode: Mode
+  setLayout: (val: LayoutOptions) => void
+  setColor: (val: ColorOptions) => void
 }
 
 export const ConfiguratorModeOptions: FC<ConfirugatorModeOptionsProps> = ({
   color,
   layout,
   mode,
+  setLayout,
+  setColor,
 }) => {
-  const router = useRouter()
   return (
     <div className={parent}>
-      <AnimatePresence exitBeforeEnter>
-        {mode === 'layout' && (
-          <AnimationParent key={mode}>
-            <Layout
-              layout={layout}
-              handleSetValue={(val: LayoutOptions) =>
-                updateUrlParams('layout', val)
-              }
-            />
-          </AnimationParent>
-        )}
-        {mode === 'size' && (
-          <AnimationParent key={mode}>
-            <Size />
-          </AnimationParent>
-        )}
-        {mode === 'colors' && (
-          <AnimationParent key={mode}>
-            <Color
-              color={color}
-              handleSetValue={(val: ColorOptions) =>
-                updateUrlParams('color', val)
-              }
-            />
-          </AnimationParent>
-        )}
-      </AnimatePresence>
+      <div className={mobile}>
+        <AnimatePresence exitBeforeEnter>
+          {mode === 'layout' && (
+            <AnimationParent key={mode}>
+              <Layout
+                layout={layout}
+                handleSetValue={(val: LayoutOptions) => setLayout(val)}
+              />
+            </AnimationParent>
+          )}
+          {mode === 'colors' && (
+            <AnimationParent key={mode}>
+              <Color
+                color={color}
+                handleSetValue={(val: ColorOptions) => setColor(val)}
+              />
+            </AnimationParent>
+          )}
+        </AnimatePresence>
+      </div>
+      <div className={tabletUp}>
+        <LayoutGroup id="tabletUp">
+          <Layout
+            layout={layout}
+            handleSetValue={(val: LayoutOptions) => setLayout(val)}
+          />
+          <Color
+            color={color}
+            handleSetValue={(val: ColorOptions) => setColor(val)}
+          />
+        </LayoutGroup>
+      </div>
     </div>
   )
-
-  function updateUrlParams(
-    param: 'color' | 'layout',
-    val: ColorOptions | LayoutOptions
-  ) {
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        [param]: val,
-      },
-    })
-  }
 }
+
+const tabletUp = parse(
+  {
+    display: { _: 'none', medium: 'grid' },
+    alignItems: 'center',
+  },
+  css`
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+  `
+)
 
 const parent = parse({
   display: 'flex',
   width: '100%',
   justifyContent: 'center',
   mb: '32',
+})
+
+const mobile = parse({
+  display: { _: 'block', medium: 'none' },
 })

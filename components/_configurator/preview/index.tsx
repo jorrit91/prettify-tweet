@@ -1,7 +1,6 @@
 import { parse } from '@config/theme'
 import { Tweet } from '@generated'
 import { css } from '@linaria/core'
-import { m } from 'framer-motion'
 import React, { FC } from 'react'
 import { Color, Layout } from '../use-configurator-store'
 import { PreviewBody } from './Body'
@@ -24,7 +23,7 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
   layout,
 }) => {
   return (
-    <m.div className={parent} data-colors={color} data-layout={layout} layout>
+    <div className={parent} data-colors={color} data-layout={layout}>
       <PreviewUser
         profileImageUrl={profileImageUrl}
         name={name}
@@ -34,7 +33,7 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
       />
       <PreviewBody text={text} layout={layout} />
       <PreviewMetadata createdAt={createdAt} layout={layout} />
-    </m.div>
+    </div>
   )
 }
 
@@ -46,6 +45,11 @@ const parent = parse(
     mb: '16',
   },
   css`
+    align-self: center;
+    width: calc(100% - 3rem);
+    max-width: 29rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
     --preview-background: #ffffff;
     --preview-border: #B8C0D8;
     --preview-text-color: #485374;
