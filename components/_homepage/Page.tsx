@@ -1,6 +1,4 @@
-import { Container } from '@components/ui/Container'
 import { Heading } from '@components/ui/typograhpy/Heading'
-import { Text } from '@components/ui/typograhpy/Text'
 import { parse } from '@config/theme'
 import { css } from '@linaria/core'
 import Link from 'next/link'
