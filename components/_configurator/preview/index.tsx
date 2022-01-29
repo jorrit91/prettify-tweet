@@ -42,14 +42,9 @@ const parent = parse(
     position: 'relative',
     width: '100%',
     p: '20',
-    mb: '16',
   },
   css`
     align-self: center;
-    width: calc(100% - 3rem);
-    max-width: 29rem;
-    margin: 0 auto;
-    margin-bottom: 1rem;
     --preview-background: #ffffff;
     --preview-border: #B8C0D8;
     --preview-text-color: #485374;

@@ -50,6 +50,7 @@ const parent = parse(
     mb: '16',
   },
   css`
+    white-space: pre-line;
     transition-property: color;
     transition-duration: 0.15s;
     color: var(--preview-text-color);

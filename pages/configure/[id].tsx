@@ -9,31 +9,42 @@ import {
   Mode,
 } from '@components/_configurator/use-configurator-store'
 import { ConfiguratorPage } from '@components/_homepage/ConfiguratorPage'
-import { Page } from '@components/_homepage/Page'
 import { parse, theme } from '@config/theme'
 import { Tweet } from '@generated'
 import { getGraphqlClient } from '@lib/graphql-client'
 import { css } from '@linaria/core'
+import { saveAs } from 'file-saver'
 import { GetServerSideProps } from 'next'
 import { rem } from 'polished'
 import { FC, useState } from 'react'
+import { useMutation } from 'react-query'
 
 type ConfigurePageProps = {
   data: Tweet
+  id: string
 }
 
 const { sdk } = getGraphqlClient()
 
-export const ConfigurePage: FC<ConfigurePageProps> = ({ data }) => {
+export const ConfigurePage: FC<ConfigurePageProps> = ({ data, id }) => {
   const [mode, setMode] = useState<Mode>('layout')
   const [color, setColor] = useState<Color>('dark')
   const [layout, setLayout] = useState<Layout>('auto')
+  const { mutateAsync, status } = useMutation(async () => {
+    return await sdk.GetScreenshot({
+      tweetId: id,
+      color,
+      layout,
+    })
+  })
 
   return (
     <ConfiguratorPage>
       <ConfiguratorTabs mode={mode} handleSetMode={(val) => setMode(val)} />
       <Container className={grid}>
-        <ConfiguratorPreview {...data} color={color} layout={layout} />
+        <div className={previewContainer}>
+          <ConfiguratorPreview {...data} color={color} layout={layout} />
+        </div>
         <div className={buttons}>
           <ConfiguratorModeOptions
             mode={mode}
@@ -42,11 +53,29 @@ export const ConfigurePage: FC<ConfigurePageProps> = ({ data }) => {
             setColor={setColor}
             setLayout={setLayout}
           />
-          <Button width="fill">Save & Download</Button>
+          <Button
+            width="fill"
+            onClick={handleDownload}
+            status={status === 'loading' ? 'loading' : 'idle'}
+          >
+            Save & Download
+          </Button>
         </div>
       </Container>
     </ConfiguratorPage>
   )
+
+  async function handleDownload() {
+    try {
+      const generatescreenshot = await mutateAsync()
+      if (generatescreenshot.getScreenshot) {
+        const { url, filename } = generatescreenshot.getScreenshot
+        saveAs(url, filename)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
 
 const buttons = parse(
@@ -55,6 +84,19 @@ const buttons = parse(
     @media screen and (min-width: ${theme.breakpoints.medium}) {
       justify-self: center;
     }
+  `
+)
+
+const previewContainer = parse(
+  {
+    display: 'flex',
+    alignItems: 'center',
+    mb: '16',
+  },
+  css`
+    width: calc(100% - 3rem);
+    max-width: 29rem;
+    margin: 0 auto;
   `
 )
 
@@ -92,6 +134,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     return {
       props: {
         data: tweetData.getTweetData,
+        id: query.id as string,
       },
     }
   } catch (error) {

@@ -44,7 +44,6 @@ const Homepage: NextPage = () => {
           </Text>
           <form onSubmit={handleSubmit}>
             <Input
-              autoFocus
               name="enter-tweet-url"
               placeholder="Enter Tweet URL"
               label="Enter url"

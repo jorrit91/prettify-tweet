@@ -9,3 +9,10 @@ query GetTweetData($tweetId: String!) {
     verified
   }
 }
+
+mutation GetScreenshot($tweetId: String!, $color: String!, $layout: String!) {
+  getScreenshot(tweetId: $tweetId, color: $color, layout: $layout) {
+    url
+    filename
+  }
+}
