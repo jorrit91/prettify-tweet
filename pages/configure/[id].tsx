@@ -41,26 +41,24 @@ export const ConfigurePage: FC<ConfigurePageProps> = ({ data, id }) => {
   return (
     <ConfiguratorPage>
       <ConfiguratorTabs mode={mode} handleSetMode={(val) => setMode(val)} />
-      <Container className={grid}>
-        <div className={previewContainer}>
-          <ConfiguratorPreview {...data} color={color} layout={layout} />
-        </div>
-        <div className={buttons}>
-          <ConfiguratorModeOptions
-            mode={mode}
-            color={color}
-            layout={layout}
-            setColor={setColor}
-            setLayout={setLayout}
-          />
-          <Button
-            width="fill"
-            onClick={handleDownload}
-            status={status === 'loading' ? 'loading' : 'idle'}
-          >
-            Save & Download
-          </Button>
-        </div>
+      <Container className={previewContainer}>
+        <ConfiguratorPreview {...data} color={color} layout={layout} />
+      </Container>
+      <Container className={buttons}>
+        <ConfiguratorModeOptions
+          mode={mode}
+          color={color}
+          layout={layout}
+          setColor={setColor}
+          setLayout={setLayout}
+        />
+        <Button
+          width="fill"
+          onClick={handleDownload}
+          status={status === 'loading' ? 'loading' : 'idle'}
+        >
+          Save & Download
+        </Button>
       </Container>
     </ConfiguratorPage>
   )
@@ -79,8 +77,9 @@ export const ConfigurePage: FC<ConfigurePageProps> = ({ data, id }) => {
 }
 
 const buttons = parse(
-  {},
+  { pt: { _: '16', medium: '0' } },
   css`
+    max-width: 29rem;
     @media screen and (min-width: ${theme.breakpoints.medium}) {
       justify-self: center;
     }
@@ -92,31 +91,13 @@ const previewContainer = parse(
     display: 'flex',
     alignItems: 'center',
     mb: '16',
+    py: { _: '16', medium: '0' },
+    width: '100%',
   },
   css`
-    width: calc(100% - 3rem);
     max-width: 29rem;
     margin: 0 auto;
-  `
-)
-
-const grid = parse(
-  {
-    display: 'grid',
-    height: '100%',
-  },
-  css`
-    grid-template-rows: 1fr auto;
-    grid-gap: 1rem;
-    grid-auto-flow: row;
-
-    @media screen and (min-width: ${theme.breakpoints.medium}) {
-      max-width: 29rem;
-    }
-
-    @media screen and (min-width: ${theme.breakpoints.large}) {
-      max-width: ${rem(1100)};
-    }
+    overflow: scroll;
   `
 )
 

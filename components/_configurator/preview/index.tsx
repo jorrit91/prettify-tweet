@@ -23,19 +23,25 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
   layout,
 }) => {
   return (
-    <div className={parent} data-colors={color} data-layout={layout}>
-      <PreviewUser
-        profileImageUrl={profileImageUrl}
-        name={name}
-        username={username}
-        verified={verified}
-        layout={layout}
-      />
-      <PreviewBody text={text} layout={layout} />
-      <PreviewMetadata createdAt={createdAt} layout={layout} />
+    <div className={wrap}>
+      <div className={parent} data-colors={color} data-layout={layout}>
+        <PreviewUser
+          profileImageUrl={profileImageUrl}
+          name={name}
+          username={username}
+          verified={verified}
+          layout={layout}
+        />
+        <PreviewBody text={text} layout={layout} />
+        <PreviewMetadata createdAt={createdAt} layout={layout} />
+      </div>
     </div>
   )
 }
+
+const wrap = css`
+  max-height: 100%;
+`
 
 const parent = parse(
   {
