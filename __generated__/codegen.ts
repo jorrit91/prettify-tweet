@@ -25,6 +25,13 @@ export type GetScreenshot = {
   url: Scalars['String'];
 };
 
+export type Media = {
+  __typename?: 'Media';
+  height: Scalars['String'];
+  url: Scalars['String'];
+  width: Scalars['String'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   getScreenshot: Maybe<GetScreenshot>;
@@ -50,6 +57,7 @@ export type QueryGetTweetDataArgs = {
 export type Tweet = {
   __typename?: 'Tweet';
   createdAt: Scalars['String'];
+  media: Maybe<Array<Maybe<Media>>>;
   name: Scalars['String'];
   profileImageUrl: Scalars['String'];
   source: Scalars['String'];
@@ -63,7 +71,7 @@ export type GetTweetDataQueryVariables = Exact<{
 }>;
 
 
-export type GetTweetDataQuery = { getTweetData: { __typename?: 'Tweet', name: string, username: string, profileImageUrl: string, createdAt: string, text: string, source: string, verified: boolean } | null | undefined };
+export type GetTweetDataQuery = { getTweetData: { __typename?: 'Tweet', name: string, username: string, profileImageUrl: string, createdAt: string, text: string, source: string, verified: boolean, media: Array<{ __typename?: 'Media', url: string, height: string, width: string } | null | undefined> | null | undefined } | null | undefined };
 
 export type GetScreenshotMutationVariables = Exact<{
   tweetId: Scalars['String'];
@@ -85,6 +93,11 @@ export const GetTweetDataDocument = gql`
     text
     source
     verified
+    media {
+      url
+      height
+      width
+    }
   }
 }
     `;

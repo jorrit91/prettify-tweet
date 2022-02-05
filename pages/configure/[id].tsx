@@ -15,7 +15,6 @@ import { getGraphqlClient } from '@lib/graphql-client'
 import { css } from '@linaria/core'
 import { saveAs } from 'file-saver'
 import { GetServerSideProps } from 'next'
-import { rem } from 'polished'
 import { FC, useState } from 'react'
 import { useMutation } from 'react-query'
 

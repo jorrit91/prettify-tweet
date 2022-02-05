@@ -4,9 +4,10 @@ import { Tweet } from '@generated'
 import { css } from '@linaria/core'
 import { AnimatePresence, m } from 'framer-motion'
 import React, { FC } from 'react'
-import { Layout } from '../use-configurator-store'
+import { Layout } from '../../use-configurator-store'
+import { BodyImages } from './Images'
 
-type PreviewBodyProps = Pick<Tweet, 'text'> & {
+type PreviewBodyProps = Pick<Tweet, 'text' | 'media'> & {
   layout: Layout
 }
 
@@ -24,12 +25,15 @@ const animateCenter = {
   transition: { duration: 0.15 },
 }
 
-export const PreviewBody: FC<PreviewBodyProps> = ({ text, layout }) => {
+export const PreviewBody: FC<PreviewBodyProps> = ({ text, media, layout }) => {
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
       {layout === 'auto' ? (
         <m.div className={parent} key="auto" {...animateLeft}>
-          <Text variant="small">{text}</Text>
+          <Text variant="small" mb="16">
+            {text}
+          </Text>
+          <BodyImages media={media} />
         </m.div>
       ) : (
         <m.div
@@ -38,7 +42,10 @@ export const PreviewBody: FC<PreviewBodyProps> = ({ text, layout }) => {
           key="centered"
           {...animateCenter}
         >
-          <Text variant="small">{text}</Text>
+          <Text variant="small" mb="16">
+            {text}
+          </Text>
+          <BodyImages media={media} />
         </m.div>
       )}
     </AnimatePresence>

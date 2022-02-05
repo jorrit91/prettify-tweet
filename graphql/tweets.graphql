@@ -7,6 +7,11 @@ query GetTweetData($tweetId: String!) {
     text
     source
     verified
+    media {
+      url
+      height
+      width
+    }
   }
 }
 

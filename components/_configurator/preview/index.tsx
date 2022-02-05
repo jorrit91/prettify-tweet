@@ -3,7 +3,7 @@ import { Tweet } from '@generated'
 import { css } from '@linaria/core'
 import React, { FC } from 'react'
 import { Color, Layout } from '../use-configurator-store'
-import { PreviewBody } from './Body'
+import { PreviewBody } from './body'
 import { PreviewMetadata } from './MetaData'
 import { PreviewUser } from './User'
 
@@ -20,6 +20,7 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
   verified,
   createdAt,
   color,
+  media,
   layout,
 }) => {
   return (
@@ -32,7 +33,7 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
           verified={verified}
           layout={layout}
         />
-        <PreviewBody text={text} layout={layout} />
+        <PreviewBody text={text} layout={layout} media={media} />
         <PreviewMetadata createdAt={createdAt} layout={layout} />
       </div>
     </div>

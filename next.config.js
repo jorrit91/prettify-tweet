@@ -11,6 +11,9 @@ module.exports = withLinaria({
         ? '.linaria-cache'
         : 'node_modules/.linaria-cache',
   },
+  images: {
+    domains: ['pbs.twimg.com'],
+  },
   webpack(config, options) {
     // this ensures that in linaria's css or styled functions you can use modules
     // that are imported with an alias. E.g. `import {theme} from '@components/theme'`
