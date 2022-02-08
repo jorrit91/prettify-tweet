@@ -2,10 +2,10 @@ import { getSdk, Sdk } from '@generated'
 import { GraphQLClient } from 'graphql-request'
 
 export function getGraphQLApiUrl(): string {
-  let url = 'http://localhost:4000/graphql'
+  let url = 'https://prettify-tweet-api.onrender.com/graphql'
   if (process.env.NEXT_PUBLIC_STAGE !== 'development') {
-    // url = 'https://prettify-tweet-api.herokuapp.com/graphql'
-    url = 'http://localhost:4000/graphql'
+    url = 'https://prettify-tweet-api.onrender.com/graphql'
+    // url = 'http://localhost:4000/graphql'
   }
   return url
 }
