@@ -17,7 +17,7 @@ export const PreviewMetadata: FC<PreviewMetadataProps> = ({
   const date = formatDate(createdAt)
   return (
     <div className={parent} data-layout={layout}>
-      <Text variant="micro">{`${date} · Prettify tweet`}</Text>
+      <Text variant="micro">{`${date} · Prettifytweet.com`}</Text>
     </div>
   )
 }
