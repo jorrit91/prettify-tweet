@@ -12,7 +12,7 @@ module.exports = withLinaria({
         : 'node_modules/.linaria-cache',
   },
   images: {
-    domains: ['pbs.twimg.com'],
+    domains: ['pbs.twimg.com', 't.co'],
   },
   webpack(config, options) {
     // this ensures that in linaria's css or styled functions you can use modules

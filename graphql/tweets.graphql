@@ -11,6 +11,13 @@ query GetTweetData($tweetId: String!) {
       url
       height
       width
+      type
+    }
+    urlPreview {
+      title
+      description
+      url
+      imageUrl
     }
   }
 }

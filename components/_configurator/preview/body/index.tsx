@@ -6,8 +6,9 @@ import { AnimatePresence, m } from 'framer-motion'
 import React, { FC } from 'react'
 import { Layout } from '../../use-configurator-store'
 import { BodyImages } from './Images'
+import { BodyPreviewUrl } from './UrlPreview'
 
-type PreviewBodyProps = Pick<Tweet, 'text' | 'media'> & {
+type PreviewBodyProps = Pick<Tweet, 'text' | 'media' | 'urlPreview'> & {
   layout: Layout
 }
 
@@ -25,14 +26,23 @@ const animateCenter = {
   transition: { duration: 0.15 },
 }
 
-export const PreviewBody: FC<PreviewBodyProps> = ({ text, media, layout }) => {
+export const PreviewBody: FC<PreviewBodyProps> = ({
+  text,
+  media,
+  layout,
+  urlPreview,
+}) => {
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
       {layout === 'auto' ? (
         <m.div className={parent} key="auto" {...animateLeft}>
-          <Text variant="small" mb="16">
-            {text}
-          </Text>
+          <Text
+            variant="small"
+            className={content}
+            mb="16"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+          {urlPreview && <BodyPreviewUrl urlPreview={urlPreview} />}
           <BodyImages media={media} />
         </m.div>
       ) : (
@@ -42,9 +52,13 @@ export const PreviewBody: FC<PreviewBodyProps> = ({ text, media, layout }) => {
           key="centered"
           {...animateCenter}
         >
-          <Text variant="small" mb="16">
-            {text}
-          </Text>
+          <Text
+            variant="small"
+            className={content}
+            mb="16"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+          {urlPreview && <BodyPreviewUrl urlPreview={urlPreview} />}
           <BodyImages media={media} />
         </m.div>
       )}
@@ -67,3 +81,9 @@ const parent = parse(
     }
   `
 )
+
+const content = css`
+  span {
+    color: #4372ff;
+  }
+`

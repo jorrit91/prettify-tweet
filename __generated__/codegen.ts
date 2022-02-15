@@ -33,9 +33,10 @@ export type GetScreenshot = {
 
 export type Media = {
   __typename?: 'Media'
-  height: Scalars['String']
+  height: Maybe<Scalars['Int']>
+  type: Scalars['String']
   url: Scalars['String']
-  width: Scalars['String']
+  width: Maybe<Scalars['Int']>
 }
 
 export type Mutation = {
@@ -66,8 +67,17 @@ export type Tweet = {
   profileImageUrl: Scalars['String']
   source: Scalars['String']
   text: Scalars['String']
+  urlPreview: Maybe<UrlPreview>
   username: Scalars['String']
   verified: Scalars['Boolean']
+}
+
+export type UrlPreview = {
+  __typename?: 'UrlPreview'
+  description: Scalars['String']
+  imageUrl: Scalars['String']
+  title: Scalars['String']
+  url: Scalars['String']
 }
 
 export type GetTweetDataQueryVariables = Exact<{
@@ -90,12 +100,23 @@ export type GetTweetDataQuery = {
               | {
                   __typename?: 'Media'
                   url: string
-                  height: string
-                  width: string
+                  height: number | null | undefined
+                  width: number | null | undefined
+                  type: string
                 }
               | null
               | undefined
             >
+          | null
+          | undefined
+        urlPreview:
+          | {
+              __typename?: 'UrlPreview'
+              title: string
+              description: string
+              url: string
+              imageUrl: string
+            }
           | null
           | undefined
       }
@@ -130,6 +151,13 @@ export const GetTweetDataDocument = gql`
         url
         height
         width
+        type
+      }
+      urlPreview {
+        title
+        description
+        url
+        imageUrl
       }
     }
   }

@@ -21,6 +21,7 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
   createdAt,
   color,
   media,
+  urlPreview,
   layout,
 }) => {
   return (
@@ -33,7 +34,12 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
           verified={verified}
           layout={layout}
         />
-        <PreviewBody text={text} layout={layout} media={media} />
+        <PreviewBody
+          text={text}
+          layout={layout}
+          media={media}
+          urlPreview={urlPreview}
+        />
         <PreviewMetadata createdAt={createdAt} layout={layout} />
       </div>
     </div>
@@ -56,12 +62,14 @@ const parent = parse(
     --preview-border: #B8C0D8;
     --preview-text-color: #485374;
     --preview-meta-text-color: #969FBA;
+    --preview-url-preview-background-color: #E8EBF3;
     
     &[data-colors="dark"]{
       --preview-background: #333740;
       --preview-border: #494d59;
       --preview-text-color: #FFFFFF;
       --preview-meta-text-color: #7D849A;
+      --preview-url-preview-background-color: #222429;
     }
 
     @supports not (background: paint(squircle)) {

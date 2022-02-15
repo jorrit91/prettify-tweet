@@ -8,7 +8,8 @@ type BodyImagesProps = Pick<Tweet, 'media'>
 
 export const BodyImages: FC<BodyImagesProps> = ({ media }) => {
   const count = media.length
-  if (count === 0) return null
+  const isVideo = media && media[0] && media[0].type === 'video'
+  if (count === 0 || isVideo) return null
   return (
     <div className={images} data-count={count}>
       {media.map((image) => (
