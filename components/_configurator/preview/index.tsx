@@ -46,9 +46,14 @@ export const ConfiguratorPreview: FC<ConfiguratorPreviewProps> = ({
   )
 }
 
-const wrap = css`
-  max-height: 100%;
-`
+const wrap = parse(
+  {
+    width: '100%',
+  },
+  css`
+    max-height: 100%;
+  `
+)
 
 const parent = parse(
   {

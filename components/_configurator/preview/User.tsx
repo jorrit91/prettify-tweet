@@ -132,6 +132,6 @@ const nameArea = parse(
 const image = css`
   height: 3rem;
   width: 3rem;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 50%;
 `

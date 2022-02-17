@@ -17,7 +17,12 @@ export const PreviewMetadata: FC<PreviewMetadataProps> = ({
   const date = formatDate(createdAt)
   return (
     <div className={parent} data-layout={layout}>
-      <Text variant="micro">{`${date} · Prettifytweet.com`}</Text>
+      <Text
+        variant="micro"
+        dangerouslySetInnerHTML={{
+          __html: `${date} · <span>Prettifytweet.com</span>`,
+        }}
+      />
     </div>
   )
 }
@@ -32,6 +37,10 @@ const parent = parse(
 
     &[data-layout='centered'] {
       justify-content: center;
+    }
+
+    span {
+      color: #4372ff;
     }
   `
 )
