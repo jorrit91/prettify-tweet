@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion'
 import { HomepageStatus } from 'pages'
 import React, { FC } from 'react'
 import { AutoPlayVideo } from '../AutoPlayVideo'
-import { AnimationParent } from './AnimationParent'
+import { AnimationParent } from '../../AnimationParent'
 
 type HomepageInfoProps = {
   status: HomepageStatus

@@ -4,7 +4,7 @@ import { Input } from '@components/ui/form/Input'
 import { Heading } from '@components/ui/typograhpy/Heading'
 import { Text } from '@components/ui/typograhpy/Text'
 import { HomepageInfo } from '@components/_homepage/Info'
-import { HomepagePage } from '@components/_homepage/Page'
+import { Page } from '@components/_homepage/Page'
 import { parse } from '@config/theme'
 import { extractTweetId } from '@lib/extract-tweet-id'
 import { validateTwitterUrl } from '@lib/validate-twitter-url'
@@ -29,15 +29,12 @@ const Homepage: NextPage = () => {
     } else {
       setStatus('idle')
     }
-  }, [debouncedValue])
+  }, [debouncedValue]) //eslint-disable-line
 
   return (
-    <HomepagePage>
+    <Page>
       <Container className={container}>
         <div className={content}>
-          <Heading variant="h1" as="h2" mb={{ _: '24', large: '32' }}>
-            ✨
-          </Heading>
           <Heading variant="h1" as="h1" mb={{ _: '24', large: '32' }}>
             Prettify tweet
           </Heading>
@@ -47,7 +44,6 @@ const Homepage: NextPage = () => {
           </Text>
           <form onSubmit={handleSubmit}>
             <Input
-              autoFocus
               name="enter-tweet-url"
               placeholder="Enter Tweet URL"
               label="Enter url"
@@ -78,7 +74,7 @@ const Homepage: NextPage = () => {
           <HomepageInfo status={status} />
         </div>
       </Container>
-    </HomepagePage>
+    </Page>
   )
 
   async function handleSubmit(e: React.SyntheticEvent) {

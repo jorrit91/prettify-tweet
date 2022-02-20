@@ -11,7 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head />
         <body>
-          <script type="text/javascript" src="/determine-theme.js" />
+          <script type="text/javascript" src="/determine-theme.js" async />
           <script
             dangerouslySetInnerHTML={{
               __html: `

@@ -6,5 +6,25 @@ query GetTweetData($tweetId: String!) {
     createdAt
     text
     source
+    verified
+    media {
+      url
+      height
+      width
+      type
+    }
+    urlPreview {
+      title
+      description
+      url
+      imageUrl
+    }
+  }
+}
+
+mutation GetScreenshot($tweetId: String!, $color: String!, $layout: String!) {
+  getScreenshot(tweetId: $tweetId, color: $color, layout: $layout) {
+    url
+    filename
   }
 }

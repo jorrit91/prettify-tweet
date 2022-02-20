@@ -1,8 +1,9 @@
-import { parse } from '@config/theme'
-import { css } from '@linaria/core'
+import { AppTheme, parse, parseAll } from '@config/theme'
+import { css, cx } from '@linaria/core'
 import * as RadixRadioGroup from '@radix-ui/react-radio-group'
 import { LayoutGroup } from 'framer-motion'
 import React, { FC } from 'react'
+import { ThemeSystemProps } from 'theme-system'
 import { TabItem } from './Item'
 
 type Item = {
@@ -10,7 +11,7 @@ type Item = {
   title: string
 }
 
-type TabsProps = {
+type TabsProps = Pick<ThemeSystemProps<AppTheme>, 'mb'> & {
   children?: never
   onValueChange: (value: string) => void //eslint-disable-line
   value: string
@@ -18,10 +19,16 @@ type TabsProps = {
   name: string
 }
 
-export const Tabs: FC<TabsProps> = ({ onValueChange, value, name, items }) => {
+export const Tabs: FC<TabsProps> = ({
+  onValueChange,
+  value,
+  name,
+  items,
+  mb,
+}) => {
   return (
     <RadixRadioGroup.Root
-      className={parent}
+      className={cx(parent, parseAll({ mb }))}
       name={name}
       onValueChange={onValueChange}
       value={value}
