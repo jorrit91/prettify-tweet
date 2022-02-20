@@ -89,13 +89,13 @@ const previewContainer = parse(
   {
     display: 'flex',
     alignItems: 'center',
-    mb: '16',
-    py: { _: '16', medium: '0' },
+    pt: { _: '16', medium: '0' },
     width: '100%',
   },
   css`
-    max-width: 29rem;
+    max-width: 35rem;
     margin: 0 auto;
+    margin-bottom: 1rem;
     overflow: scroll;
   `
 )

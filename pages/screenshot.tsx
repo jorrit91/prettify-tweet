@@ -32,7 +32,7 @@ const previewParent = parse(
     width: '100%',
   },
   css`
-    max-width: 29rem;
+    max-width: 35rem;
   `
 )
 

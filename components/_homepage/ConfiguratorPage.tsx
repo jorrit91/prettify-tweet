@@ -38,7 +38,7 @@ export const ConfiguratorPage: FC<ConfiguratorPageProps> = ({ children }) => {
 
 const logo = parse({
   textAlign: 'center',
-  my: { _: '16', medium: '64' },
+  my: { _: '16', medium: '32' },
 })
 
 const footer = parse({
