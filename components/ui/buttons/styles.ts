@@ -138,11 +138,24 @@ export const button = parse(
   `
 )
 
-export const loading = parse({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-})
+export const loading = parse(
+  {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
+  css`
+    span {
+      font-weight: ${theme.fontWeights.regular};
+      display: flex;
+      margin-left: 0.5rem;
+      gap: 1rem;
+      color: var(--text-color) !important;
+      opacity: 1 !important;
+    }
+  `
+)
 
 export const iconButton = css`
   width: 3rem;

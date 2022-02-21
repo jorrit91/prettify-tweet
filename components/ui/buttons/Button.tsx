@@ -1,6 +1,12 @@
 import { AppTheme, parseAll } from '@config/theme'
 import { cx } from '@linaria/core'
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, FC } from 'react'
+import React, {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FC,
+  useEffect,
+  useState,
+} from 'react'
 import { ThemeSystemProps } from 'theme-system'
 import { LoadingSvg } from '../LoadingSvg'
 import * as styles from './styles'
@@ -14,6 +20,17 @@ type AsButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 type AsDivProps = ButtonHTMLAttributes<HTMLDivElement> & {
   as?: 'div'
 }
+const loadingTexts = [
+  'This might take a second...',
+  'Preparing the goodness...',
+  'Just a sec...',
+  'Result will be 🤤',
+  'Parsing pixels...',
+  'Smoothing corners...',
+  'Parsing colors...',
+  'Generating tastiness...',
+]
+let timer
 
 type ButtonAs = AsAnchorProps | AsButtonProps | AsDivProps
 
@@ -33,6 +50,7 @@ export const Button: FC<ButtonProps> = ({
   mb,
   ...rest
 }) => {
+  const [errorText, setErrorText] = useState(null)
   let Element: any = 'button'
   if (as === 'link') {
     Element = 'a'
@@ -40,6 +58,22 @@ export const Button: FC<ButtonProps> = ({
   if (as === 'div') {
     Element = 'div'
   }
+
+  useEffect(() => {
+    resetTimer()
+    if (status === 'loading') {
+      timer = setInterval(() => {
+        setErrorText(
+          loadingTexts[Math.floor(Math.random() * loadingTexts.length)]
+        )
+      }, 4000)
+    }
+
+    return () => {
+      resetTimer()
+    }
+  }, [status])
+
   return (
     <Element
       {...rest}
@@ -54,8 +88,14 @@ export const Button: FC<ButtonProps> = ({
       {status === 'loading' && (
         <span data-loading-animation className={styles.loading}>
           <LoadingSvg />
+          {errorText && <span>{errorText}</span>}
         </span>
       )}
     </Element>
   )
+
+  function resetTimer() {
+    clearInterval(timer)
+    setErrorText(null)
+  }
 }
