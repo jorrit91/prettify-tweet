@@ -62,12 +62,25 @@ export const ConfigurePage: FC<ConfigurePageProps> = ({ data, id }) => {
     </ConfiguratorPage>
   )
 
+  async function download(path, filename) {
+    const image = await fetch(path)
+    const imageBlog = await image.blob()
+    const imageURL = URL.createObjectURL(imageBlog)
+
+    const anchor = document.createElement('a')
+    anchor.href = imageURL
+    anchor.download = filename
+    document.body.appendChild(anchor)
+    anchor.click()
+    document.body.removeChild(anchor)
+  }
+
   async function handleDownload() {
     try {
       const generatescreenshot = await mutateAsync()
       if (generatescreenshot.getScreenshot) {
         const { url, filename } = generatescreenshot.getScreenshot
-        saveAs(url, filename)
+        download(url, filename)
       }
     } catch (error) {
       console.error(error)
