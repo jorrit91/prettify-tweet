@@ -5,7 +5,7 @@ context('Validate preview', () => {
   it('should show the preview for 10 random tweets', () => {
     cy.request({
       method: 'POST',
-      url: 'https://pretstify-tweet-api-o79jc.ondigitalocean.app/graphql',
+      url: 'https://prettify-tweet-api-o79jc.ondigitalocean.app/graphql',
       body: {
         operationName: 'getRandomTweetIds',
         query: `
@@ -24,7 +24,7 @@ context('Validate preview', () => {
       ) {
         const ids = result.body.data.getRandomTweetIds.ids
         for (const id of ids) {
-          cy.visit(`/configure/${id}`)
+          cy.visit(`/configsdure/${id}`)
           cy.findByText('Save & Download')
         }
       } else {
