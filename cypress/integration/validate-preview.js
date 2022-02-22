@@ -25,7 +25,7 @@ context('Validate preview', () => {
         const ids = result.body.data.getRandomTweetIds.ids
         for (const id of ids) {
           cy.visit(`/configure/${id}`)
-          cy.findByText('Shave & Download')
+          cy.findByText('Save & Download')
         }
       } else {
         throw new Error('Could not get random tweet ids')
