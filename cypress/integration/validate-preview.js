@@ -27,6 +27,8 @@ context('Validate preview', () => {
           cy.visit(`/configure/${id}`)
           cy.findByText('Save & Download')
         }
+      } else {
+        throw new Error('Could not get random tweet ids')
       }
     })
   })
