@@ -47,7 +47,7 @@ const parent = parse(
   },
   css`
     overflow: hidden;
-    background-color: var(--preview-url-preview-background-color);
+    background: var(--preview-url-preview-background-color);
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
   `

@@ -1,3 +1,4 @@
+import { Seo } from '@components/Seo'
 import { Button } from '@components/ui/buttons/Button'
 import { Container } from '@components/ui/Container'
 import { ConfiguratorModeOptions } from '@components/_configurator/mode-options'
@@ -38,6 +39,7 @@ export const ConfigurePage: FC<ConfigurePageProps> = ({ data, id }) => {
 
   return (
     <ConfiguratorPage>
+      <Seo title="Configure" addTitleSuffix />
       <ConfiguratorTabs mode={mode} handleSetMode={(val) => setMode(val)} />
       <Container className={previewContainer}>
         <ConfiguratorPreview {...data} color={color} layout={layout} />
