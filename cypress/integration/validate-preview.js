@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 /// <reference types="@testing-library/cypress" />
 /// <reference types="cypress-wait-until" />
-
 context('Validate preview', () => {
   it('should show the preview for 10 random tweets', () => {
     cy.request({
@@ -28,6 +27,8 @@ context('Validate preview', () => {
           cy.visit(`/configure/${id}`)
           cy.findByText('Save & Download')
         }
+      } else {
+        throw new Error('Could not get random tweet ids')
       }
     })
   })
