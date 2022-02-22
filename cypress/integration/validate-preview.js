@@ -5,7 +5,7 @@ context('Validate preview', () => {
   it('should show the preview for 10 random tweets', () => {
     cy.request({
       method: 'POST',
-      url: 'https://prettify-tweet-api-o79jc.ondigitalocean.app/graphql',
+      url: 'https://pretstify-tweet-api-o79jc.ondigitalocean.app/graphql',
       body: {
         operationName: 'getRandomTweetIds',
         query: `
