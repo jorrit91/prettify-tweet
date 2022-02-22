@@ -66,7 +66,7 @@ export const Button: FC<ButtonProps> = ({
         setErrorText(
           loadingTexts[Math.floor(Math.random() * loadingTexts.length)]
         )
-      }, 4000)
+      }, 3500)
     }
 
     return () => {
