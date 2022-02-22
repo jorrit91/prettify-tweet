@@ -1,3 +1,4 @@
+import { Seo } from '@components/Seo'
 import { Button } from '@components/ui/buttons/Button'
 import { Container } from '@components/ui/Container'
 import { Input } from '@components/ui/form/Input'
@@ -33,6 +34,7 @@ const Homepage: NextPage = () => {
 
   return (
     <Page>
+      <Seo title="Prettify tweet - Generate beautiful images from tweets" />
       <Container className={container}>
         <div className={content}>
           <Heading variant="h1" as="h1" mb={{ _: '24', large: '32' }}>
