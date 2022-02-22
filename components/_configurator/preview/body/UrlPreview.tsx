@@ -9,6 +9,7 @@ import { rem } from 'polished'
 type BodyPreviewUrlProps = Pick<Tweet, 'urlPreview'>
 
 export const BodyPreviewUrl: FC<BodyPreviewUrlProps> = ({ urlPreview }) => {
+  const url = new URL(urlPreview.url).hostname
   return (
     <div className={parent}>
       <div className={imageParent}>
@@ -21,6 +22,9 @@ export const BodyPreviewUrl: FC<BodyPreviewUrlProps> = ({ urlPreview }) => {
         />
       </div>
       <div className={content}>
+        <Text variant="micro" className={hostname}>
+          {url}
+        </Text>
         <Text variant="micro" fontWeight="bold">
           {urlPreview.title}
         </Text>
@@ -32,9 +36,22 @@ export const BodyPreviewUrl: FC<BodyPreviewUrlProps> = ({ urlPreview }) => {
   )
 }
 
+const hostname = parse(
+  {},
+  css`
+    margin-bottom: 4px;
+    color: var(--preview-meta-text-color);
+  `
+)
+
 const description = parse(
   {},
   css`
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-top: 6px;
     color: var(--preview-meta-text-color);
   `
