@@ -1,6 +1,6 @@
 {
   "name": "template-www",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A template for websites.",
   "main": "index.js",
   "repository": "https://github.com/reversed-digital/template-www.git",
