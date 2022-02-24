@@ -15,7 +15,7 @@ import { Tweet } from '@generated'
 import { getGraphqlClient } from '@lib/graphql-client'
 import { css } from '@linaria/core'
 import { GetServerSideProps } from 'next'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useMutation } from 'react-query'
 
 type ConfigurePageProps = {
@@ -36,6 +36,14 @@ export const ConfigurePage: FC<ConfigurePageProps> = ({ data, id }) => {
       layout,
     })
   })
+
+  useEffect(() => {
+    const mode = localStorage.getItem('mode')
+
+    if (mode) {
+      setColor(mode as Color)
+    }
+  }, [])
 
   return (
     <ConfiguratorPage>
@@ -63,25 +71,37 @@ export const ConfigurePage: FC<ConfigurePageProps> = ({ data, id }) => {
     </ConfiguratorPage>
   )
 
-  async function download(path, filename) {
+  async function download(path) {
+    // iOS Chrome
     const image = await fetch(path)
-    const imageBlog = await image.blob()
-    const imageURL = URL.createObjectURL(imageBlog)
+    const imageBlob = await image.blob()
+    const reader = new FileReader()
+    const out = new Blob([imageBlob], { type: 'image/png' })
+    reader.onload = function () {
+      window.location.href = reader.result as string
+    }
+    reader.readAsDataURL(out)
+    // if (navigator.userAgent.match('CriOS')) {
+    // } else {
+    //   const image = await fetch(path)
+    //   const imageBlob = await image.blob()
+    //   const imageURL = URL.createObjectURL(imageBlob)
 
-    const anchor = document.createElement('a')
-    anchor.href = imageURL
-    anchor.download = filename
-    document.body.appendChild(anchor)
-    anchor.click()
-    document.body.removeChild(anchor)
+    //   const anchor = document.createElement('a')
+    //   anchor.href = imageURL
+    //   anchor.download = filename
+    //   document.body.appendChild(anchor)
+    //   anchor.click()
+    //   document.body.removeChild(anchor)
+    // }
   }
 
   async function handleDownload() {
     try {
       const generatescreenshot = await mutateAsync()
       if (generatescreenshot.getScreenshot) {
-        const { url, filename } = generatescreenshot.getScreenshot
-        download(url, filename)
+        const { url } = generatescreenshot.getScreenshot
+        download(url)
       }
     } catch (error) {
       console.error(error)

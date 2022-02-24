@@ -43,7 +43,7 @@ const parent = parse(
       border: 1px solid var(--radio-group-border);
       background: var(--radio-group-background);
       border-radius: 0.75rem;
-      box-shadow: 0px 1px 3px #141721;
+      box-shadow: 0px 1px 3px var(--radio-group-shadow);
     }
 
     @supports (background: paint(squircle)) {
