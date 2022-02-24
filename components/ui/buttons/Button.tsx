@@ -62,11 +62,13 @@ export const Button: FC<ButtonProps> = ({
   useEffect(() => {
     resetTimer()
     if (status === 'loading') {
-      timer = setInterval(() => {
-        setErrorText(
-          loadingTexts[Math.floor(Math.random() * loadingTexts.length)]
-        )
-      }, 3500)
+      timer = setTimeout(() => {
+        setInterval(() => {
+          setErrorText(
+            loadingTexts[Math.floor(Math.random() * loadingTexts.length)]
+          )
+        }, 3000)
+      }, 4000)
     }
 
     return () => {
