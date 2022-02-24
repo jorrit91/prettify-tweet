@@ -18,6 +18,8 @@ export const theme: Theme = {
   fontSizes: {},
   colors: {
     brightBlue: '#3061F6',
+    brightBlueHover: '#2d58d6',
+    brightBlueDisabled: '#29428f',
     darkBlue: '#253566',
     success: '#0DA365',
     error: '#F24822',
@@ -27,6 +29,12 @@ export const theme: Theme = {
     shade300: '#494D59',
     shade200: '#7D849A',
     shade100: '#FFFFFF',
+    lightShade100: '#FFFFFF',
+    lightShade200: '#F5F7FB',
+    lightShade300: '#E8EBF3',
+    lightShade400: '#B8C0D8',
+    lightShade500: '#969FBA',
+    lightShade600: '#485374',
   },
   space: {
     '0': '0',

@@ -1,16 +1,24 @@
-import React from 'react'
+import '@config/theme/utility-styles'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import '../styles/reset.css'
+import React from 'react'
+import { LazyMotion, domMax } from 'framer-motion'
 import '../styles/font-face.css'
 import '../styles/global-styles.css'
-import '@config/theme/utility-styles'
+import '../styles/reset.css'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { Favicon } from '@components/Favicon'
+
+const queryClient = new QueryClient()
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Favicon />
+      <LazyMotion features={domMax}>
+        <Component {...pageProps} />
+      </LazyMotion>
+    </QueryClientProvider>
   )
 }
 

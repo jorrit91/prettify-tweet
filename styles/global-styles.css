@@ -1,6 +1,11 @@
 * {
   font-family: 'Brown', -apple-system, system-ui, BlinkMacSystemFont,
     'Helvetica Neue', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -12,5 +17,5 @@ h4,
 h5,
 h6 {
   font-family: 'Noto Serif', serif;
-  color: var(--heading-color);
+  color: var(--text-color);
 }

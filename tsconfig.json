@@ -12,7 +12,8 @@
     "paths": {
       "@components/*": ["./components/*"],
       "@lib/*": ["./lib/*"],
-      "@config/*": ["./config/*"]
+      "@config/*": ["./config/*"],
+      "@generated": ["./__generated__/codegen.ts"]
     },
     "target": "es5",
     "allowJs": true,
@@ -20,13 +21,15 @@
     "esModuleInterop": true,
     "module": "esnext",
     "isolatedModules": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "./node_modules/@sanity/base/types/**/*.ts"
+    "./node_modules/@sanity/base/types/**/*.ts",
+    "public/determine-theme.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,8 +1,19 @@
-const withLinaria = require('@biowaffeln/next-linaria')
+const withLinaria = require('next-linaria')
 
 const path = require('path')
 
 module.exports = withLinaria({
+  linaria: {
+    evaluate: true,
+    displayName: process.env.NODE_ENV === 'development',
+    cacheDirectory:
+      process.env.NODE_ENV === 'development'
+        ? '.linaria-cache'
+        : 'node_modules/.linaria-cache',
+  },
+  images: {
+    domains: ['pbs.twimg.com', 't.co'],
+  },
   webpack(config, options) {
     // this ensures that in linaria's css or styled functions you can use modules
     // that are imported with an alias. E.g. `import {theme} from '@components/theme'`
