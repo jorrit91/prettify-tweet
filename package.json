@@ -27,7 +27,7 @@
     "@linaria/webpack-loader": "3.0.0-beta.16",
     "@next/bundle-analyzer": "12.1.0",
     "@testing-library/cypress": "8.0.2",
-    "@types/node": "16.11.25",
+    "@types/node": "16.11.26",
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.12.1",
@@ -46,8 +46,8 @@
     "@linaria/core": "3.0.0-beta.15",
     "@linaria/react": "3.0.0-beta.15",
     "@linaria/shaker": "3.0.0-beta.15",
-    "@radix-ui/react-dialog": "0.1.5",
-    "@radix-ui/react-radio-group": "0.1.4",
+    "@radix-ui/react-dialog": "0.1.7",
+    "@radix-ui/react-radio-group": "0.1.5",
     "babel-plugin-polished": "1.1.0",
     "framer-motion": "5.6.0",
     "graphql": "16.3.0",
@@ -63,6 +63,6 @@
     "save-as": "0.1.8",
     "theme-system": "0.2.9",
     "use-debounce": "7.0.1",
-    "zustand": "3.7.0"
+    "zustand": "3.7.1"
   }
 }
