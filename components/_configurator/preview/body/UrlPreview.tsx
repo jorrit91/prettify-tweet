@@ -64,9 +64,19 @@ const parent = parse(
   },
   css`
     overflow: hidden;
-    background: var(--preview-url-preview-background-color) !important;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+
+    @supports not (background: paint(squircle)) {
+      background: var(--preview-url-preview-background-color);
+    }
+
+    @supports (background: paint(squircle)) {
+      --squircle-radius: 0;
+      --squircle-smooth: 0;
+      --squircle-fill: var(--preview-url-preview-background-color);
+      background: paint(squircle);
+    }
   `
 )
 
