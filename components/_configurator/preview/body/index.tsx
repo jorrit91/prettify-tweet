@@ -32,18 +32,29 @@ export const PreviewBody: FC<PreviewBodyProps> = ({
   layout,
   urlPreview,
 }) => {
+  const hasImages =
+    media && media[0] && ['photo', 'animated_gif'].includes(media[0].type)
+
+  const contents = (
+    <>
+      <Text
+        variant="small"
+        className={content}
+        mb="16"
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
+      {hasImages ? (
+        <BodyImages media={media} />
+      ) : (
+        urlPreview && <BodyPreviewUrl urlPreview={urlPreview} />
+      )}
+    </>
+  )
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
       {layout === 'auto' ? (
         <m.div className={parent} key="auto" {...animateLeft}>
-          <Text
-            variant="small"
-            className={content}
-            mb="16"
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
-          {urlPreview && <BodyPreviewUrl urlPreview={urlPreview} />}
-          <BodyImages media={media} />
+          {contents}
         </m.div>
       ) : (
         <m.div
@@ -52,14 +63,7 @@ export const PreviewBody: FC<PreviewBodyProps> = ({
           key="centered"
           {...animateCenter}
         >
-          <Text
-            variant="small"
-            className={content}
-            mb="16"
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
-          {urlPreview && <BodyPreviewUrl urlPreview={urlPreview} />}
-          <BodyImages media={media} />
+          {contents}
         </m.div>
       )}
     </AnimatePresence>

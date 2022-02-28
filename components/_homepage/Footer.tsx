@@ -11,13 +11,18 @@ export const Footer: FC = () => {
         Ⓒ PT
       </Text>
       <div className={links}>
-        <a href="#" className={link}>
-          Subscribe
-        </a>
-        <a href="#" className={link}>
+        <a
+          href="https://forms.gle/PqQzj2uqRcAm8q4NA"
+          target="blank"
+          className={link}
+        >
           Request feature
         </a>
-        <a href="#" className={link}>
+        <a
+          href="https://forms.gle/FTUSaKAVmHPYQKi5A"
+          target="blank"
+          className={link}
+        >
           Feedback
         </a>
       </div>

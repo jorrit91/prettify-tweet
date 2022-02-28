@@ -70,7 +70,7 @@ const Homepage: NextPage = () => {
           </form>
           {status === 'error' && (
             <Text variant="small" color="error" mb="12">
-              Oops! It looks like your URL looks funny...
+              {`Oops! That doesn't look like a valid tweet URL...`}
             </Text>
           )}
           <HomepageInfo status={status} />
