@@ -63,7 +63,7 @@
     "react-query": "3.34.16",
     "save-as": "0.1.8",
     "theme-system": "0.2.9",
-    "use-debounce": "7.0.1",
+    "use-debounce": "8.0.1",
     "zustand": "3.7.1"
   }
 }
